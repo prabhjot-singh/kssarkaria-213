@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>§6 Grecian origami — 213, 16A</title>
+  <meta name="description" content="Jeanneret's forgotten brick mural at 213, 16A — Pythagoras proved by paper-cutting alone.">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <style>
+    .pyth-sq {
+      font-size: 0.82rem;
+      font-style: italic;
+      text-anchor: middle;
+    }
+    .pyth-lbl {
+      font-size: 13px;
+      fill: var(--ink-muted);
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">213, 16A</a>
+    <nav><a href="index.html">The Tour</a></nav>
+  </header>
+
+  <main>
+    <article>
+      <p class="eyebrow">§6 · North wall</p>
+      <h1>Grecian origami</h1>
+
+      <figure class="photo">
+        <img src="assets/photos/213-018-032.jpg" alt="A hand-drawn sketch showing two squares labelled E and F adjacent to a larger tilted square labelled H, with the equation E + F = H written below.">
+        <figcaption>Jeanneret's raised red-brick mural, as hurriedly re-drawn the day Sarkaria finally re-found it. <em>E + F = H.</em></figcaption>
+      </figure>
+
+      <div class="prose">
+        <blockquote>
+          <p>
+            I'll resist repeating in full a favourite story of mine about how I had tracked down a famous, but forgotten, mural of Jeanneret's in this city about five years ago, but shall recall that his raised red-brick mural (see Notes for the original photo) was in a state of advanced neglect (with almost two full letters missing) when I'd finally re-found it and hurriedly made that day (for I didn't have a camera on me) the sketch that is shown above. You'll immediately recognize in its <strong>E + F = H</strong> the statement of, <em>the one theorem that we all remember from school!</em>
+          </p>
+        </blockquote>
+      </div>
+
+      <section class="interactive" aria-label="Pythagorean paper-cutting proof">
+        <h2>Cut and slide</h2>
+        <p class="muted" style="font-size: 0.95rem;">
+          Both outer squares have side <em>a + b</em>. The left is filled by one tilted square of side <em>c</em> (area <em>c²</em>) plus four right triangles. The right is filled by two squares of sides <em>a</em> and <em>b</em> (areas <em>a²</em> and <em>b²</em>) plus the same four triangles. Same outer area, same four triangles — therefore <em>c² = a² + b²</em>.
+        </p>
+        <div class="canvas-wrap">
+          <svg id="pythSvg" viewBox="0 0 820 380" preserveAspectRatio="xMidYMid meet" role="img"></svg>
+        </div>
+        <div class="controls">
+          <label>a: <input id="pa" type="range" min="2" max="5" step="1" value="3"><span class="readout" id="paR">3</span></label>
+          <label>b: <input id="pb" type="range" min="2" max="5" step="1" value="4"><span class="readout" id="pbR">4</span></label>
+          <label>c: <span class="readout" id="pcR">5</span></label>
+          <label><em>a² + b² = c²</em>: <span class="readout" id="peqR">9 + 16 = 25</span></label>
+        </div>
+      </section>
+
+      <div class="prose">
+        <h2>And more generally</h2>
+        <blockquote>
+          <p>
+            More generally, the paper-less Greek ancients knew that, <em>any finite set of polygons can be converted into a single square by paper-cutting and pasting</em> ('uncutting') <em>moves!</em> Indeed, the mural has already taught us that a sum of two squares is equal to a square in the sense of this 'grecian origami' (as against japanese origami, which uses paper-folding and unfolding moves), and a polygon can obviously be cut into triangles, and a triangle converted easily into a rectangle, which can be cut into equal squares, and lay these four as shown below, so it'll suffice to show that this (shaded) <em>difference of two squares</em> is also equal to a square.
+          </p>
+        </blockquote>
+        <p>
+          A line segment and a polygon are also called, respectively, a 1-dimensional and a 2-dimensional polytope, and quite generally, an <em>n-dimensional polytope</em> is a region of n-dimensional space bounded by finitely many (n−1)-dimensional polytopes, and one can play n-dimensional grecian origami with these! The <em>grothendieck group K(n)</em> has as elements all finite sets of n-dimensional polytopes or their negatives, with two such sets deemed equal if they are related to each other by pasting and cutting, and these operations are used to define addition and subtraction in K(n).
+        </p>
+        <blockquote>
+          <p>
+            As against this, for <em>n ≥ 3</em>, the groups K(n) are not totally ordered (but their structure is still not completely worked out for n ≥ 5), so, <em>there are 3-dimensional polytopes of the same volume which are not related to each other by any finite sequence of cutting and pasting moves.</em> Responding to Hilbert's Third Problem, Dehn had shown in the year 1900 itself that, <em>the regular tetrahedron cannot be converted into a cube by any such sequence of moves.</em>
+          </p>
+        </blockquote>
+      </div>
+
+      <details class="his-words">
+        <summary>In his own words: finding Jeanneret's mural</summary>
+        <div class="content">
+          <p>
+            Above that balcony with a 'jeanneret jaali' — a knotted brick lattice de rigueur in Chandigarh houses built till the late sixties — and a vertical version of a more traditional jaali once popular on the parapets of Punjab's villages, there is a mural which is even simpler — grooves in cement, coloured purple — than Jeanneret's, and scores over it inasmuch as, <em>it depicts the same theorem with a complete proof!</em> Simply cut out — with a scissors if you will! — the two congruent right triangles from the big tilted square on their hypotenuses, and translate the triangle at the top to the bottom, and the one on the right to the extreme left, to obtain that shoe-shaped union of the squares on the smaller sides, which can be cut further, if need be, into these two squares.
+          </p>
+        </div>
+      </details>
+
+      <nav class="section-footer">
+        <a class="prev" href="fourhalfturns.html">§5 Four half-turns</a>
+        <a class="tour-home" href="index.html">Map</a>
+        <a class="next" href="amazingcurves.html">§7 Amazing curves</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>Interactive version by <a href="https://github.com/prabhjot-singh/kssarkaria-213">Prabhjot Singh</a>, 2026 · Paper and photographs © K.S. Sarkaria</p>
+  </footer>
+
+  <script>
+    const svg = document.getElementById("pythSvg");
+    const pa = document.getElementById("pa"), pb = document.getElementById("pb");
+    const paR = document.getElementById("paR"), pbR = document.getElementById("pbR");
+    const pcR = document.getElementById("pcR"), peqR = document.getElementById("peqR");
+
+    function render() {
+      const a = parseInt(pa.value);
+      const b = parseInt(pb.value);
+      const c = Math.sqrt(a*a + b*b);
+      paR.textContent = a;
+      pbR.textContent = b;
+      pcR.textContent = c.toFixed(3).replace(/\.?0+$/, "");
+      peqR.textContent = `${a*a} + ${b*b} = ${a*a + b*b}`;
+
+      const scale = 30;
+      const S = (a + b) * scale;
+      const offset = 30;
+      const gap = 80;
+
+      // Config A: (a+b) outer square, tilted inner c² square, 4 corner triangles.
+      // Corners: corner-triangles with right angles at the 4 corners.
+      const aS = a * scale, bS = b * scale;
+      const ox1 = offset, oy1 = 30;
+
+      // Config B: same (a+b) outer, with a² top-right, b² bottom-left, triangles
+      const ox2 = offset + S + gap, oy2 = 30;
+
+      const triColor = "#c9a55c";
+      const triStroke = "#1c1917";
+      const aSqColor = "#7a9ab6";
+      const bSqColor = "#8fa987";
+      const cSqColor = "#bd8d6a";
+
+      let html = "";
+
+      // ==== Config A ====
+      // Outer square
+      html += `<rect x="${ox1}" y="${oy1}" width="${S}" height="${S}" fill="#faf5eb" stroke="${triStroke}" stroke-width="1.5"/>`;
+      // Inner tilted c² square
+      const innerA = [
+        [ox1 + aS, oy1],
+        [ox1 + S, oy1 + aS],
+        [ox1 + bS, oy1 + S],
+        [ox1, oy1 + bS]
+      ];
+      html += `<polygon points="${innerA.map(p=>p.join(",")).join(" ")}" fill="${cSqColor}" fill-opacity="0.6" stroke="${triStroke}" stroke-width="1.5"/>`;
+      // 4 corner triangles (outline)
+      [
+        [[ox1, oy1], [ox1+aS, oy1], [ox1, oy1+bS]],
+        [[ox1+S, oy1], [ox1+S, oy1+aS], [ox1+bS, oy1]],
+        [[ox1+S, oy1+S], [ox1+bS, oy1+S], [ox1+S, oy1+bS]],
+        [[ox1, oy1+S], [ox1, oy1+aS], [ox1+bS, oy1+S]]
+      ].forEach(pts => {
+        html += `<polygon points="${pts.map(p=>p.join(",")).join(" ")}" fill="${triColor}" fill-opacity="0.75" stroke="${triStroke}" stroke-width="1.3"/>`;
+      });
+      html += `<text x="${ox1 + S/2}" y="${oy1 + S/2 + 5}" class="pyth-sq" fill="#1c1917">c² = ${a*a+b*b}</text>`;
+      html += `<text x="${ox1 + S/2}" y="${oy1 + S + 20}" text-anchor="middle" class="pyth-lbl">(a+b)² = c² + 4·(ab/2)</text>`;
+
+      // ==== Config B ====
+      html += `<rect x="${ox2}" y="${oy2}" width="${S}" height="${S}" fill="#faf5eb" stroke="${triStroke}" stroke-width="1.5"/>`;
+      // a² in top-right: from (b*s, 0) to (b*s + a*s, a*s) = (S, a*s)
+      html += `<rect x="${ox2 + bS}" y="${oy2}" width="${aS}" height="${aS}" fill="${aSqColor}" fill-opacity="0.75" stroke="${triStroke}" stroke-width="1.5"/>`;
+      // b² in bottom-left: from (0, a*s) to (b*s, a*s + b*s) = (b*s, S)
+      html += `<rect x="${ox2}" y="${oy2 + aS}" width="${bS}" height="${bS}" fill="${bSqColor}" fill-opacity="0.75" stroke="${triStroke}" stroke-width="1.5"/>`;
+      // 4 triangles fill the two a×b rectangles
+      // Top-left rectangle (0,0)-(b,a), split by diagonal (0,0)-(b,a)
+      [
+        [[ox2, oy2], [ox2+bS, oy2], [ox2+bS, oy2+aS]],
+        [[ox2, oy2], [ox2+bS, oy2+aS], [ox2, oy2+aS]],
+        [[ox2+bS, oy2+aS], [ox2+S, oy2+aS], [ox2+S, oy2+S]],
+        [[ox2+bS, oy2+aS], [ox2+S, oy2+S], [ox2+bS, oy2+S]]
+      ].forEach(pts => {
+        html += `<polygon points="${pts.map(p=>p.join(",")).join(" ")}" fill="${triColor}" fill-opacity="0.75" stroke="${triStroke}" stroke-width="1.3"/>`;
+      });
+      html += `<text x="${ox2 + bS + aS/2}" y="${oy2 + aS/2 + 5}" class="pyth-sq">a² = ${a*a}</text>`;
+      html += `<text x="${ox2 + bS/2}" y="${oy2 + aS + bS/2 + 5}" class="pyth-sq">b² = ${b*b}</text>`;
+      html += `<text x="${ox2 + S/2}" y="${oy2 + S + 20}" text-anchor="middle" class="pyth-lbl">(a+b)² = a² + b² + 4·(ab/2)</text>`;
+
+      // equals sign between
+      html += `<text x="${ox1 + S + gap/2}" y="${oy1 + S/2 + 10}" text-anchor="middle" font-size="32" fill="${triStroke}">=</text>`;
+
+      svg.innerHTML = html;
+    }
+
+    pa.addEventListener("input", render);
+    pb.addEventListener("input", render);
+    render();
+  </script>
+</body>
+</html>

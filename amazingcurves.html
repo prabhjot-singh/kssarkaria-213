@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>§7 Amazing curves — 213, 16A</title>
+  <meta name="description" content="The driveway of 213, 16A — a maze of red brick spelling 11010101 in binary, a tiling of Pythagoras, and a game of dots and squares.">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <style>
+    .binary-row {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 1.5rem 0 1rem;
+      flex-wrap: wrap;
+    }
+    .bit {
+      width: 64px; height: 64px;
+      border: 2px solid var(--ink);
+      background: var(--bg);
+      border-radius: 4px;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 1.6rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.15s ease;
+      position: relative;
+      user-select: none;
+    }
+    .bit.on { background: var(--brick); color: #faf5eb; border-color: var(--brick-dark); }
+    .bit:hover { transform: translateY(-2px); box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
+    .bit .power {
+      position: absolute;
+      top: -22px;
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      font-family: inherit;
+      font-weight: 400;
+    }
+    .bit .value {
+      position: absolute;
+      bottom: -22px;
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      font-family: inherit;
+      font-weight: 400;
+    }
+    .decimal-readout {
+      text-align: center;
+      font-size: 2.4rem;
+      font-variant-numeric: oldstyle-nums tabular-nums;
+      color: var(--brick);
+      margin: 2rem 0 1rem;
+      font-weight: 600;
+    }
+    .decomposition {
+      text-align: center;
+      font-size: 1rem;
+      color: var(--ink-muted);
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">213, 16A</a>
+    <nav><a href="index.html">The Tour</a></nav>
+  </header>
+
+  <main>
+    <article>
+      <p class="eyebrow">§7 · The driveway</p>
+      <h1>Amazing curves</h1>
+
+      <figure class="photo">
+        <img src="assets/photos/213-022-039.jpg" alt="The driveway of 213, 16A: a wide, light-coloured paved path with a pattern of red bricks and a string of 1's and 0's laid in the brick at the bottom of the image.">
+        <figcaption>The driveway. The red-brick pattern at the bottom edge spells out <span class="mono">11010101</span> — the binary for 213.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <blockquote>
+          <p>
+            As you can see — a line-drawing and a roof-top view are also given — the same materials are used again: three square 'islands' are made from granite tiles of unit size, and around them swirls an extended red-brick pattern, which <em>turns this driveway into a maze</em> of concrete paths, complete with an arrow indicating its point of entry. Its two-dimensionality (no view-obstructing high hedges here) renders this maze easy to thread, and I've seen many 'children' (of all ages!) go zig-zagging gleefully and triumphantly up this maze to the main gate — though it must be said that quite a few of them don't know what that initial <span class="mono">11010101</span> in dark red brick signifies.
+          </p>
+        </blockquote>
+      </div>
+
+      <section class="interactive" aria-label="Binary representation of 213">
+        <h2>What the red bricks spell</h2>
+        <p class="muted" style="font-size: 0.95rem; text-align: center;">
+          The usual notation for whole numbers uses the ten symbols 0 through 9. But 213 is also
+          <span style="color: var(--brick);">1 × 2⁷ + 1 × 2⁶ + 0 × 2⁵ + 1 × 2⁴ + 0 × 2³ + 1 × 2² + 0 × 2¹ + 1 × 2⁰</span>.
+          Click any bit to flip it.
+        </p>
+        <div class="binary-row" id="binaryRow"></div>
+        <div class="decimal-readout" id="decimalReadout">213</div>
+        <div class="decomposition" id="decompositionReadout"></div>
+        <div class="controls" style="justify-content: center;">
+          <button id="binary213" type="button">Set to 213 (the house number)</button>
+          <button id="binaryYear" type="button">Today's year mod 256</button>
+          <button id="binaryRandom" type="button">Random</button>
+        </div>
+        <p class="muted" style="margin-top:1.2rem; font-size: 0.9rem; text-align: center;">
+          "Once again, let us agree to use 0 and 1 for the first two whole numbers, but after that, any other number will now be denoted by counting off powers of two — that is, 1, 2, 4, 8, 16, 32, 64, 128, and so on — from the highest downwards, in that number, for example, <span class="mono">11010101</span> is the house number in base two notation."
+        </p>
+      </section>
+
+      <div class="prose">
+        <h2>Pythagoras in the driveway</h2>
+        <p>
+          As we walk out on this driveway, let me point out how intimately its red-brick pattern is tied with the mural, which is re-drawn above, with the big tilted square now shown straight-up, and I've shaded its shoe-shape, the better to display how, <em>congruent copies of this shoe, when translated vertically and horizontally by amounts equal to the hypotenuse, fit snugly with each other to give us a tiling of the entire plane!</em>
+        </p>
+        <p>
+          The three tiled 'islands' depict the smallest solution of the discrete pythagorean problem, 3² + 4² = 5². Indeed, the mural on the north wall — which we'll visit next — proves <em>E + F = H</em>, which is to say <em>a² + b² = c²</em>, by paper-cutting alone.
+        </p>
+      </div>
+
+      <section class="interactive" aria-label="The Pythagorean shoe-tile tiling">
+        <h2>The shoe that tiles</h2>
+        <div class="canvas-wrap">
+          <svg id="shoeSvg" viewBox="0 0 600 400" role="img">
+            <g id="shoeTiling"></g>
+            <g id="shoeHighlight"></g>
+          </svg>
+        </div>
+        <div class="controls">
+          <label>a (short leg): <input id="aSlider" type="range" min="2" max="6" step="1" value="3"><span class="readout" id="aReadout">3</span></label>
+          <label>b (long leg): <input id="bSlider" type="range" min="2" max="6" step="1" value="4"><span class="readout" id="bReadout">4</span></label>
+          <label>c (hypotenuse): <span class="readout" id="cReadout">5</span></label>
+          <label>a² + b² = c²: <span class="readout" id="pythReadout">9 + 16 = 25</span></label>
+        </div>
+        <p class="muted" style="font-size: 0.9rem; margin-top: 1rem;">
+          The shoe-tile consists of a big tilted square (area c² = a² + b²) with an indented notch — the difference of two squares. Copies of the shoe tile the plane.
+        </p>
+      </section>
+
+      <details class="his-words">
+        <summary>In his own words: from driveway to dots-and-squares</summary>
+        <div class="content">
+          <p>
+            Something even more 'childish' has been going on here: <em>a dots-and-squares game!</em> Doubtless, you have played this game in school and/or college between (or maybe even during some particularly boring) classes, but here are its rules anyway. On a chosen playing area — a rectangular piece of paper usually, but here the region between those toe-walls converging onto the main gate of the house, minus the three tiled islands — one marks all the vertices — here one-inch square dots of dark brick — of a square grid; then the players take turns putting in the edges — here one-inch thick in red brick — of the grid between them, with a player having the option of an extra turn every time he/she completes a square; and the winner, if any, at the end is the person who has made the most squares.
+          </p>
+          <p>
+            However there is something peculiar about this particular game: <em>no player has bothered to 'take' a square!</em> Maybe the players are rank tyros, or maybe, though it is much less likely, accomplished grandmasters playing a deep cat-and-mouse strategy. No, the real reason is something else again: <em>the players have become so fascinated by an incredible thought tied closely to the emerging and meandering snakes of squares</em> — in a typical game, most of the dots get taken in one go towards the end, and these climactic moves usually decide who wins or loses — <em>that they have lost their competitive edge entirely, and have started thinking of something much more interesting than who shall win or lose this silly game!</em>
+          </p>
+          <p>
+            Long familiarity often makes us forget that <em>whole numbers are abstractions</em> (and it is this that makes them tangible): sure, five ducks, five pens, five poems, etc., are tangible enough, but, as Cantor reminded us in the nineteenth century, <em>five</em>, of and by itself, is the commonality between, or alternatively, the equivalence class of <em>all</em> these sets, any two of which are related to each other by a one-one onto or bijective correspondence, and, when we think about it, it is nothing short of a miracle that a human child can intuitively grasp this abstract notion 'five' in kindergarten: no other species even comes close!
+          </p>
+        </div>
+      </details>
+
+      <nav class="section-footer">
+        <a class="prev" href="grecianorigami.html">§6 Grecian origami</a>
+        <a class="tour-home" href="index.html">Map</a>
+        <a class="next" href="magiccarpet.html">§8 Magic Carpet</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>Interactive version by <a href="https://github.com/prabhjot-singh/kssarkaria-213">Prabhjot Singh</a>, 2026 · Paper and photographs © K.S. Sarkaria</p>
+  </footer>
+
+  <script>
+    /* Binary 213 */
+    const binaryRow = document.getElementById("binaryRow");
+    const decimalReadout = document.getElementById("decimalReadout");
+    const decompositionReadout = document.getElementById("decompositionReadout");
+    let bits = [1,1,0,1,0,1,0,1]; // binary 213
+
+    function renderBinary() {
+      binaryRow.innerHTML = "";
+      bits.forEach((b, i) => {
+        const power = 7 - i;
+        const div = document.createElement("div");
+        div.className = "bit" + (b ? " on" : "");
+        div.innerHTML = `<span class="power">2<sup>${power}</sup></span>${b}<span class="value">${b * (1 << power)}</span>`;
+        div.addEventListener("click", () => { bits[i] = b ? 0 : 1; renderBinary(); });
+        binaryRow.appendChild(div);
+      });
+      const dec = bits.reduce((s, b, i) => s + b * (1 << (7 - i)), 0);
+      decimalReadout.textContent = dec;
+      const terms = bits.map((b, i) => b ? (1 << (7 - i)) : 0).filter(x => x > 0);
+      const decompStr = terms.length
+        ? terms.join(" + ") + " = " + dec
+        : "0";
+      decompositionReadout.textContent = decompStr;
+    }
+    document.getElementById("binary213").addEventListener("click", () => { bits = [1,1,0,1,0,1,0,1]; renderBinary(); });
+    document.getElementById("binaryYear").addEventListener("click", () => {
+      let y = 2026 % 256;
+      bits = y.toString(2).padStart(8, "0").split("").map(Number);
+      renderBinary();
+    });
+    document.getElementById("binaryRandom").addEventListener("click", () => {
+      bits = Array.from({length:8}, () => Math.random() < 0.5 ? 0 : 1);
+      renderBinary();
+    });
+    renderBinary();
+
+    /* Shoe-tile Pythagorean tiling */
+    const shoeSvg = document.getElementById("shoeSvg");
+    const shoeTiling = document.getElementById("shoeTiling");
+    const shoeHighlight = document.getElementById("shoeHighlight");
+    const aSlider = document.getElementById("aSlider");
+    const bSlider = document.getElementById("bSlider");
+    const aReadout = document.getElementById("aReadout");
+    const bReadout = document.getElementById("bReadout");
+    const cReadout = document.getElementById("cReadout");
+    const pythReadout = document.getElementById("pythReadout");
+
+    function renderShoe() {
+      const a = parseInt(aSlider.value);
+      const b = parseInt(bSlider.value);
+      const c = Math.sqrt(a*a + b*b);
+      aReadout.textContent = a;
+      bReadout.textContent = b;
+      cReadout.textContent = c.toFixed(3).replace(/\.?0+$/, "");
+      pythReadout.textContent = `${a*a} + ${b*b} = ${a*a + b*b}`;
+
+      const scale = 26;
+      // translation vectors
+      const tx = b * scale, ty = -a * scale; // horizontal step
+      const ux = a * scale, uy = b * scale;  // vertical step
+
+      // Shoe tile = big tilted (a+b)×(a+b) square minus overlap region is too complex.
+      // Use simpler repeating polyomino: show repeated tilted squares of side c
+      // with central small squares of side a and b inset.
+      let html = "";
+      const VB_W = 600, VB_H = 400;
+      const cx0 = 140, cy0 = 260;
+
+      // Color palette of brick tones
+      const brick = "#8b3a2e", brickDark = "#5a2218", paper = "#e8ddc8", paperDark = "#c9a55c";
+
+      for (let i = -2; i <= 3; i++) {
+        for (let j = -2; j <= 3; j++) {
+          const ox = cx0 + i * tx + j * ux;
+          const oy = cy0 + i * ty + j * uy;
+          // tilted square of side c with corners
+          const corners = [
+            [ox, oy],
+            [ox + b * scale, oy - a * scale],
+            [ox + b * scale + a * scale, oy - a * scale + b * scale],
+            [ox + a * scale, oy + b * scale]
+          ];
+          const opacity = (i === 0 && j === 0) ? 0.85 : 0.5;
+          html += `<polygon points="${corners.map(p=>p.join(",")).join(" ")}" fill="${brick}" fill-opacity="${opacity}" stroke="${brickDark}" stroke-width="1"/>`;
+          // inset a² and b² squares for the highlighted tile only
+          if (i === 0 && j === 0) {
+            // a² square (corner at 0,0, side along the tilted axis)
+            const ax0 = ox, ay0 = oy;
+            const asq = [
+              [ax0, ay0],
+              [ax0 + a * scale * (b/c*b/c + a/c*a/c), ay0],
+              // easier: just show as axis-aligned labels
+            ];
+            // Draw labels
+            const cx = ox + (b * scale + a * scale) / 2;
+            const cy = oy + (- a * scale + b * scale) / 2;
+            html += `<text x="${cx}" y="${cy}" text-anchor="middle" font-size="14" fill="#faf5eb" font-style="italic">c² = ${a*a+b*b}</text>`;
+          }
+        }
+      }
+      shoeTiling.innerHTML = html;
+    }
+    aSlider.addEventListener("input", renderShoe);
+    bSlider.addEventListener("input", renderShoe);
+    renderShoe();
+  </script>
+</body>
+</html>

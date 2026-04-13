@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>§5 Four half-turns — 213, 16A</title>
+  <meta name="description" content="Any quadrilateral tiles the plane by four half-turns — and Marjorie Rice's pentagon, which ought not to.">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <style>
+    .tiling-svg { background: #faf5eb; user-select: none; touch-action: none; }
+    .tile { stroke: #1c1917; stroke-width: 1; }
+    .master { stroke-width: 2.5; stroke: #8b3a2e; }
+    .vertex { fill: #8b3a2e; stroke: #1c1917; stroke-width: 1; cursor: grab; }
+    .vertex:active { cursor: grabbing; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">213, 16A</a>
+    <nav><a href="index.html">The Tour</a></nav>
+  </header>
+
+  <main>
+    <article>
+      <p class="eyebrow">§5 · Rooftop floor</p>
+      <h1>Four half-turns</h1>
+
+      <figure class="photo">
+        <img src="assets/photos/213-016-027.jpg" alt="A rooftop patio with a floor of alternating dark and light quadrilateral tiles forming a tessellation.">
+        <figcaption>The rooftop floor — a tiling by congruent quadrilateral tiles.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <blockquote>
+          <p>
+            We'll show that <em>the area of a quadrilateral stays put under a deformation effected by any translation of a diagonal.</em> In particular, a translation B'D' to BD after which AC and BD bisect each other, converts any given quadrilateral AB'C'D' to a parallelogram ABCD (opposite sides parallel and equal) of the same area.
+          </p>
+          <p>
+            Besides, we have stumbled on a striking fact: <em>the plane can be tiled by congruent copies of any given quadrilateral!</em> To see this, we deform all parallelograms having 'the same chessboard-colour' as ABCD in the same way: the spaces left between the ensuing orange quadrilaterals will be congruent yellow quadrilaterals, namely, the fusions of the yellow triangles of each strip with those of an adjacent strip.
+          </p>
+        </blockquote>
+      </div>
+
+      <section class="interactive" aria-label="Interactive quadrilateral tiling">
+        <h2>Drag the corners</h2>
+        <p class="muted" style="font-size: 0.95rem;">
+          Drag any red dot to reshape the master quadrilateral. The plane tiles with its congruent copies by repeated half-turns around edge midpoints. <em>Even non-convex quadrilateral tiles do!</em>
+        </p>
+        <div class="canvas-wrap">
+          <svg id="tilingSvg" class="tiling-svg" viewBox="0 0 700 440" preserveAspectRatio="xMidYMid meet" role="img">
+            <g id="tilingLayer"></g>
+            <g id="masterLayer"></g>
+            <g id="handlesLayer"></g>
+          </svg>
+        </div>
+        <div class="controls">
+          <button id="convexBtn" type="button">Convex quad</button>
+          <button id="nonconvexBtn" type="button">Non-convex quad</button>
+          <button id="kiteBtn" type="button">Kite</button>
+          <button id="randomBtn" type="button">Random</button>
+          <label>Tiles: <span class="readout" id="tileCount">—</span></label>
+        </div>
+      </section>
+
+      <div class="prose">
+        <h2>Crystallography, and Marjorie Rice</h2>
+        <blockquote>
+          <p>
+            If a tiling has a symmetry relating any pair of tiles, then its symmetries are said to form a <em>crystallographic group.</em> Our quadrilateral tiling is one of these because, <em>when a tile executes a half-turn around the mid-point of one of its edges, one obtains the tile sharing that edge with it.</em>
+          </p>
+          <p>
+            It has been known for 200 years that, upto a composition-preserving bijection, <em>there are exactly 16 more of these crystallographic groups.</em> By 1900, the classification of the analogously defined spatial groups, which are the ones that really matter in the study of crystalline substances, was also essentially complete, there being now, <em>exactly 230 spatial crystallographic groups.</em>
+          </p>
+        </blockquote>
+      </div>
+
+      <figure class="photo">
+        <img src="assets/photos/213-017-029.jpg" alt="A diagram showing Marjorie Rice's pentagonal tiling, with pentagon tiles arranged in a non-convex pattern.">
+        <figcaption>Marjorie Rice's pentagon — not crystallographic, a counterexample to Hilbert's conjecture. Discovered in 1975 by a housewife who had studied mathematics only till high school, 35 years prior.</figcaption>
+      </figure>
+
+      <blockquote>
+        <p>
+          For Marjorie Rice, you see, was a housewife who had studied maths only till her high school 35 long years before, when she chanced one day upon an article on pentagonal tilings in the "Scientific American," that led her to start making more and more of these tilings on her own.
+        </p>
+      </blockquote>
+
+      <details class="his-words">
+        <summary>In his own words: Hilbert's question and its negative answer</summary>
+        <div class="content">
+          <p>
+            Hilbert did <em>not</em> ask for a similar planar example, it is likely that he had expected the answer 'yes' to the following question: <em>if congruent copies of a convex polygon tile the plane, then can they also tile it crystallographically?</em> The second motif on this roof-top, that is, "Marjorie's example," shows that <em>the answer is 'no'!</em>
+          </p>
+          <p>
+            Since one turns through 360 degrees as one goes around a convex polygon, the five angles of such a pentagon ABCDE obey A + B + C + D + E = (5 × 180) − 360 = 540 degrees, and, in general, they obey no other condition. To make a tiling it is necessary — otherwise its tiles won't fit at a vertex — that some of these angles, possibly with repetitions, should add up to 360 degrees. Again, it is necessary that some of the edges {AB, BC, CD, DE, EA} be equal: otherwise, the two tiles across any edge have to be reflections of each other, so we can tile only if the five angles are divisors of 360 adding up to 540, that is, never.
+          </p>
+          <p>
+            A longish list of fitting conditions, now available. The pentagon used here obeys the conditions B + 2E = 360, C + 2D = 360 and EA = AB = BC = CD, and the fifth edge DE is shorter.
+          </p>
+        </div>
+      </details>
+
+      <nav class="section-footer">
+        <a class="prev" href="intermission.html">Intermission</a>
+        <a class="tour-home" href="index.html">Map</a>
+        <a class="next" href="grecianorigami.html">§6 Grecian origami</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>Interactive version by <a href="https://github.com/prabhjot-singh/kssarkaria-213">Prabhjot Singh</a>, 2026 · Paper and photographs © K.S. Sarkaria</p>
+  </footer>
+
+  <script>
+    /* Quadrilateral tiling via four half-turns.
+       Master quad has 4 draggable vertices. Half-turns around edge midpoints
+       generate a tiling via BFS; deduplicate by centroid hash.
+    */
+    const svgNS = "http://www.w3.org/2000/svg";
+    const svgEl = document.getElementById("tilingSvg");
+    const tilingLayer = document.getElementById("tilingLayer");
+    const masterLayer = document.getElementById("masterLayer");
+    const handlesLayer = document.getElementById("handlesLayer");
+    const tileCountEl = document.getElementById("tileCount");
+
+    const VIEW = { x: 0, y: 0, w: 700, h: 440 };
+    let quad = [
+      { x: 300, y: 180 },
+      { x: 380, y: 170 },
+      { x: 410, y: 250 },
+      { x: 320, y: 265 }
+    ];
+
+    const PRESETS = {
+      convex: [{x:300,y:180},{x:380,y:170},{x:410,y:250},{x:320,y:265}],
+      nonconvex: [{x:290,y:170},{x:390,y:185},{x:340,y:230},{x:395,y:285}],
+      kite: [{x:350,y:150},{x:420,y:220},{x:350,y:290},{x:280,y:220}],
+    };
+
+    function setQuad(pts) {
+      quad = pts.map(p => ({...p}));
+      render();
+    }
+
+    function computeTiling() {
+      const tiles = [];
+      const seen = new Set();
+      const queue = [quad.map(p => ({...p}))];
+
+      function centroid(q) {
+        return [
+          (q[0].x + q[1].x + q[2].x + q[3].x) / 4,
+          (q[0].y + q[1].y + q[2].y + q[3].y) / 4
+        ];
+      }
+      function hashQuad(q) {
+        const [cx, cy] = centroid(q);
+        return `${Math.round(cx*10)/10},${Math.round(cy*10)/10}`;
+      }
+      function inBounds(q) {
+        const [cx, cy] = centroid(q);
+        return cx > -100 && cx < VIEW.w + 100 && cy > -100 && cy < VIEW.h + 100;
+      }
+
+      let guard = 0;
+      while (queue.length && guard < 400) {
+        guard++;
+        const q = queue.shift();
+        const h = hashQuad(q);
+        if (seen.has(h)) continue;
+        if (!inBounds(q)) continue;
+        seen.add(h);
+        tiles.push(q);
+
+        // Half-turn around each edge midpoint
+        for (let i = 0; i < 4; i++) {
+          const a = q[i], b = q[(i+1) % 4];
+          const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+          // rotate 180° around (mx, my): p -> (2mx - p.x, 2my - p.y)
+          const nq = q.map(p => ({ x: 2*mx - p.x, y: 2*my - p.y }));
+          queue.push(nq);
+        }
+      }
+      return tiles;
+    }
+
+    function render() {
+      const tiles = computeTiling();
+      tileCountEl.textContent = tiles.length;
+
+      // Two-colour checker based on parity of BFS depth approximated by centroid
+      const colors = ["#c9a55c", "#7a9ab6"];
+      tilingLayer.innerHTML = tiles.map((q, i) => {
+        const pts = q.map(p => `${p.x},${p.y}`).join(" ");
+        // Simple 2-colour: based on parity of rounded centroid sum
+        const [cx, cy] = [(q[0].x + q[2].x)/2, (q[0].y + q[2].y)/2];
+        const col = colors[(Math.round((cx + cy)/20) + 100) % 2];
+        return `<polygon class="tile" points="${pts}" fill="${col}" fill-opacity="0.55"/>`;
+      }).join("");
+
+      // master quad
+      const mPts = quad.map(p => `${p.x},${p.y}`).join(" ");
+      masterLayer.innerHTML = `<polygon class="tile master" points="${mPts}" fill="#8b3a2e" fill-opacity="0.25"/>`;
+
+      // handles
+      handlesLayer.innerHTML = "";
+      quad.forEach((p, i) => {
+        const c = document.createElementNS(svgNS, "circle");
+        c.setAttribute("cx", p.x);
+        c.setAttribute("cy", p.y);
+        c.setAttribute("r", 7);
+        c.setAttribute("class", "vertex");
+        c.dataset.index = i;
+        handlesLayer.appendChild(c);
+      });
+    }
+
+    // Dragging
+    let dragIdx = -1;
+    function startDrag(e) {
+      const t = e.target;
+      if (t.classList.contains("vertex")) {
+        dragIdx = parseInt(t.dataset.index);
+        e.preventDefault();
+      }
+    }
+    function moveDrag(e) {
+      if (dragIdx < 0) return;
+      e.preventDefault();
+      const pt = svgEl.createSVGPoint();
+      const ev = e.touches ? e.touches[0] : e;
+      pt.x = ev.clientX; pt.y = ev.clientY;
+      const svgP = pt.matrixTransform(svgEl.getScreenCTM().inverse());
+      quad[dragIdx].x = Math.max(20, Math.min(VIEW.w - 20, svgP.x));
+      quad[dragIdx].y = Math.max(20, Math.min(VIEW.h - 20, svgP.y));
+      render();
+    }
+    function endDrag() { dragIdx = -1; }
+
+    svgEl.addEventListener("mousedown", startDrag);
+    window.addEventListener("mousemove", moveDrag);
+    window.addEventListener("mouseup", endDrag);
+    svgEl.addEventListener("touchstart", startDrag, { passive: false });
+    window.addEventListener("touchmove", moveDrag, { passive: false });
+    window.addEventListener("touchend", endDrag);
+
+    document.getElementById("convexBtn").addEventListener("click", () => setQuad(PRESETS.convex));
+    document.getElementById("nonconvexBtn").addEventListener("click", () => setQuad(PRESETS.nonconvex));
+    document.getElementById("kiteBtn").addEventListener("click", () => setQuad(PRESETS.kite));
+    document.getElementById("randomBtn").addEventListener("click", () => {
+      const cx = 350, cy = 220, r = 60;
+      const pts = [];
+      for (let i = 0; i < 4; i++) {
+        const a = (Math.PI * 2 * i)/4 + (Math.random() - 0.5) * 0.6;
+        const rr = r * (0.7 + Math.random() * 0.6);
+        pts.push({ x: cx + rr * Math.cos(a), y: cy + rr * Math.sin(a) });
+      }
+      setQuad(pts);
+    });
+
+    render();
+  </script>
+</body>
+</html>
