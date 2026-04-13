@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailpiece — bing's ome — 213, 16A</title>
+  <meta name="description" content="The closing passage of the tour of 213, 16A. Bing's house, the Möbius strip, and a child who saw an elf.">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <style>
+    .bings-house-svg { background: #faf5eb; display: block; margin: 0 auto; }
+    .mobius-svg { background: #faf5eb; display: block; margin: 0 auto; cursor: grab; user-select: none; touch-action: none; }
+    .mobius-svg:active { cursor: grabbing; }
+    .closing {
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .closing blockquote {
+      border-left-color: var(--brick-dark);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">213, 16A</a>
+    <nav><a href="index.html">The Tour</a></nav>
+  </header>
+
+  <main>
+    <article>
+      <p class="eyebrow">— Tailpiece —</p>
+      <h1>bing's ome</h1>
+
+      <figure class="photo">
+        <img src="assets/photos/213-033-063.jpg" alt="A small white concrete house with a red sloping roof perched atop a brick aqueduct in a garden — the 'house with two rooms'.">
+        <figcaption>That little white "house with two rooms" and a sloping red roof, atop the roman aqueduct.</figcaption>
+      </figure>
+
+      <div class="prose closing">
+        <blockquote>
+          <p>
+            One afternoon I was telling someone with a math background how that little white "house with two rooms" and a sloping red roof — atop that roman aqueduct was, in fact, an example constructed by Bing of a space which is, <em>contractible but not collapsible!</em>
+          </p>
+          <p>
+            Its glass windows allow us to see that it is peculiar: <em>one enters its rear room via a corridor attached by a flange to the front room, and vice versa!</em> There are no free edges left, we can't collapse it any further. On the other hand, filling the house with sand, and then excavating out the same shows, just as plainly, that the 3-dimensional ball, which of course is collapsible, collapses also to Bing's house!
+          </p>
+        </blockquote>
+      </div>
+
+      <section class="interactive" aria-label="Bing's house">
+        <h2>Bing's house with two rooms</h2>
+        <p class="muted" style="font-size: 0.9rem;">
+          A simplified reconstruction of Bing's famous example. The coloured tubes are the two corridors — each one enters a room from the side opposite its own entrance.
+        </p>
+        <div class="canvas-wrap">
+          <svg class="bings-house-svg" viewBox="0 0 500 400" width="500" height="400" role="img">
+            <!-- Outer box (the house) -->
+            <g stroke="#1c1917" stroke-width="1.5" fill="none">
+              <!-- front face (trapezoid with perspective) -->
+              <path d="M 100 100 L 380 100 L 380 320 L 100 320 Z" fill="#faf5eb"/>
+              <!-- back face lines (dashed) -->
+              <path d="M 160 70 L 440 70 L 440 290 L 160 290" stroke-dasharray="4 4" opacity="0.6"/>
+              <!-- top edges -->
+              <line x1="100" y1="100" x2="160" y2="70"/>
+              <line x1="380" y1="100" x2="440" y2="70"/>
+              <!-- right edges -->
+              <line x1="380" y1="320" x2="440" y2="290" stroke-dasharray="4 4" opacity="0.6"/>
+              <line x1="100" y1="320" x2="160" y2="290" stroke-dasharray="4 4" opacity="0.6"/>
+
+              <!-- Top corridor (blue): enters from top, descends into lower room -->
+              <path d="M 200 70 L 200 200 L 280 200 L 280 150" stroke="#7a9ab6" stroke-width="3" fill="none"/>
+              <!-- opening at top -->
+              <ellipse cx="200" cy="70" rx="18" ry="5" fill="#7a9ab6" opacity="0.8"/>
+              <!-- Lower dividing floor separating the two rooms (partial) -->
+              <line x1="100" y1="200" x2="380" y2="200" stroke="#6b5d4f" stroke-width="1" opacity="0.5"/>
+              <line x1="160" y1="170" x2="440" y2="170" stroke="#6b5d4f" stroke-width="1" opacity="0.5" stroke-dasharray="4 4"/>
+
+              <!-- Bottom corridor (orange): enters from bottom, ascends into upper room -->
+              <path d="M 300 320 L 300 230 L 220 230 L 220 280" stroke="#c9a55c" stroke-width="3" fill="none"/>
+              <ellipse cx="300" cy="320" rx="18" ry="5" fill="#c9a55c" opacity="0.8"/>
+            </g>
+
+            <text x="155" y="60" font-size="11" fill="#7a9ab6" font-style="italic">entry to lower room</text>
+            <text x="315" y="340" font-size="11" fill="#c9a55c" font-style="italic">entry to upper room</text>
+            <text x="250" y="390" font-size="10" fill="#6b5d4f" font-style="italic" text-anchor="middle">Two rooms stacked. Each accessed via a corridor that pierces the floor of the other.</text>
+          </svg>
+        </div>
+      </section>
+
+      <div class="prose closing">
+        <p>
+          At this point I realized that I had not one, but three listeners, and that I had been talking above the heads, in more ways than one, of the other two! Two small girls, a precocious child of about ten, and her equally bright-eyed younger sister, who was probably still too young to go with us (they and their parents were amongst a number of guests we had over for tea that day). To make amends, I switched to my story about that <em>chotta aadmi</em> (small man) who had, as a matter of fact, made this fully-functional <em>paani ki taanki</em> (overhead water tank), as well as this roman aqueduct with its thirteen (true) arches, all by himself, and who was, to tell the truth, still pretty much running the whole show, more or less ...
+        </p>
+        <p>
+          There was an indulgent and bemused look on the older child's face as I spun this yarn, but her little sister was impressed! She asked, "So he lives in the house with two rooms, uncle?" "No, <em>beta,</em>" I replied, "that's the pump-house. He lives, like all elves do, far far underground. That little cave in the wall, from where that tiny road comes out to that ramp leading to the spiral stair-case winding around and up this <em>taanki,</em> and finally, that arch bridge to the aqueduct, I would suspect that that's his route to and from work, but like most humans I can't see elves, so I'm not sure."
+        </p>
+      </div>
+
+      <section class="interactive" aria-label="Möbius strip">
+        <h2>A one-sided surface</h2>
+        <p class="muted" style="font-size: 0.9rem;">
+          My companion already knew a simple method for making this one-sided surface — take a strip of paper, twist one end through 180 degrees, and glue to the other — there was nothing much I had to say about it. Drag to rotate.
+        </p>
+        <div class="canvas-wrap">
+          <svg class="mobius-svg" id="mobiusSvg" viewBox="-200 -150 400 300" width="400" height="300" role="img">
+            <g id="mobiusGroup"></g>
+          </svg>
+        </div>
+      </section>
+
+      <div class="prose closing">
+        <p>
+          On our way out, we paused at the spot from where the sound of running water is transmitted via the metallic frame to the rear of the <em>chabutra,</em> to ponder the patterns made by fast-flowing water from the fall, over the pebbles of that gorge, as it about-turns into a subterranean tunnel and pool which feed the stony brook.
+        </p>
+        <blockquote>
+          <p>
+            It was about then that my companion told me, "That method of yours does not really give me a möbius strip of paper, indeed it can <em>never</em> be made, for, the material making it would prescribe an inner side, while we want a one-sided surface!" Now this is serious, not only am I faulting another method, it seems I didn't come clean on mine either, but my companion saw the point I was trying to get across. Neither the concrete statue, nor the most delicate of models in the thinnest of papers shall give a möbius strip, for the simple reason that, <em>it is an abstract idea: it exists in our imagination only</em>: there alone is to be found that ethereal paper with zero thickness, the gossamer necessary to 'make' any mathematical surface.
+          </p>
+          <p>
+            So, the "house with two rooms" atop the aqueduct, that too is not mathematician R. H. Bing's example either, only an evocation of the same, and so on down the line, for <em>all</em> the motifs. They are all flawed depictions of flawless forms that can't be seen as such — <em>"like elves,"</em> my companion teased me — but the fact that these imperfect depictions are so efficient in evoking in our minds these precise ideas, suggests that these 'elves of mathematics' are somewhat more important and natural, and in fact, most of these logical constructs arose historically from a contemplation of the patterns of nature.
+          </p>
+        </blockquote>
+      </div>
+
+      <div class="prose closing">
+        <p>
+          Conversation over tea that day had flowed smoothly on everything under the sun, but both were waning now, yet the older sister was chattering away with the grown-ups, but her sibling had left the skew room long ago. Fearing that she might be too near the water-pond in this fading light, I was relieved to find her by the aqueduct, but was taken aback by her posture: <em>half-kneeling and stockstill, she was sort of squinting, steadily and fixedly, into that little cave!</em> Setting myself down slowly on the grass besides her, I asked, "What is it, beta, what are you looking at?" Her voice was soft, but the two words were clear enough, and made my eyes dart to the "house with two rooms," but it was not that, it was this cave only that was holding all her attention, as she repeated, <em>"bing's ome,"</em> and moved a finger slowly towards it.
+        </p>
+        <p>
+          The thought flashed that she was pulling my leg in return, but there was not a trace of naughtiness on that innocent face, and the thought was dismissed; as I looked at exactly where she was looking, but I saw only what you see in the photo above (which however was taken on a later day, in better light). While she remained in that fascinated state for about thirty seconds more, when, all of a sudden, her body relaxed and returned to normal, and it was clear that whatever she had seen, or thought she had seen, was no longer there. The happy smile the child smiled at me then presumed that I had also seen what she had seen, so I only smiled back. However later, on many evenings at about the same time, I have sat down on the same grass at the same place, and tried many contortions of face and squintings of eyes, hoping to espy, <em>for myself,</em> that elf which that little girl had apparently seen, but I would be lying if I were to tell you that I have seen it too, for I haven't, <em>not yet,</em> anyways!
+        </p>
+        <blockquote>
+          <p>
+            I remember reading that, try as they might, a small but significant percentage of people can't see the hidden image in even the simplest of those <em>"Magic Eye"</em> pictures, so who knows, <em>bing with a small 'bee'</em> might be somewhere in the previous photograph, only you aren't squinting at it properly? More seriously, I hope you managed to catch at least a glimpse of the shimmering beauty of the elves of mathematics, which indeed I <em>have</em> seen, and which I've tried to share with you, via these motifs, in this paper.
+          </p>
+        </blockquote>
+      </div>
+
+      <figure class="photo" style="margin-top: 3rem;">
+        <img src="assets/photos/213-036-073.jpg" alt="A small girl in half-kneeling pose, looking intently at a cave-opening at the base of a rockery — the moment from the closing passage.">
+        <figcaption style="font-style: italic; color: var(--ink-muted);">
+          "— half-kneeling and stockstill, she was sort of squinting, steadily and fixedly, into that little cave!"
+        </figcaption>
+      </figure>
+
+      <p class="center" style="margin: 4rem 0 1rem; color: var(--ink-muted); font-style: italic;">
+        213, 16A,<br>
+        Chandigarh 160015, INDIA.
+      </p>
+
+      <nav class="section-footer">
+        <a class="prev" href="magiccarpet.html">§8 Magic Carpet</a>
+        <a class="tour-home" href="index.html">Map</a>
+        <a class="next" href="index.html">Back to the beginning</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>Interactive version by <a href="https://github.com/prabhjot-singh/kssarkaria-213">Prabhjot Singh</a>, 2026 · Paper and photographs © K.S. Sarkaria</p>
+  </footer>
+
+  <script>
+    /* Möbius strip — parametric wire-frame renderer with drag-to-rotate. */
+    const mobiusSvg = document.getElementById("mobiusSvg");
+    const mobiusGroup = document.getElementById("mobiusGroup");
+    const svgNS = "http://www.w3.org/2000/svg";
+
+    let rx = 0.35, ry = 0.25;
+
+    function rotate3(p, rx, ry) {
+      const [x, y, z] = p;
+      const cy = Math.cos(ry), sy = Math.sin(ry);
+      let x1 = x * cy + z * sy;
+      let z1 = -x * sy + z * cy;
+      let y1 = y;
+      const cx = Math.cos(rx), sx = Math.sin(rx);
+      let y2 = y1 * cx - z1 * sx;
+      let z2 = y1 * sx + z1 * cx;
+      return [x1, y2, z2];
+    }
+    function project(p) {
+      const depth = 5;
+      const f = depth / (depth - p[2] * 0.15);
+      return [p[0] * 60 * f, -p[1] * 60 * f, p[2]];
+    }
+
+    function renderMobius() {
+      // Parametrise: u ∈ [0, 2π], v ∈ [-0.35, 0.35]
+      const R = 1.5;
+      const segs = 120;
+      const points = [];
+      for (let i = 0; i <= segs; i++) {
+        const u = (i / segs) * 2 * Math.PI;
+        for (const v of [-0.35, 0.35]) {
+          const x = (R + v * Math.cos(u / 2)) * Math.cos(u);
+          const y = (R + v * Math.cos(u / 2)) * Math.sin(u);
+          const z = v * Math.sin(u / 2);
+          points.push([x, y, z]);
+        }
+      }
+
+      // Build quads sorted back-to-front
+      const quads = [];
+      for (let i = 0; i < segs; i++) {
+        const a = points[i * 2];
+        const b = points[i * 2 + 1];
+        const c = points[(i + 1) * 2 + 1];
+        const d = points[(i + 1) * 2];
+        const tA = rotate3(a, rx, ry);
+        const tB = rotate3(b, rx, ry);
+        const tC = rotate3(c, rx, ry);
+        const tD = rotate3(d, rx, ry);
+        const avgZ = (tA[2] + tB[2] + tC[2] + tD[2]) / 4;
+        const pA = project(tA), pB = project(tB), pC = project(tC), pD = project(tD);
+        // Shade based on facing direction (simple)
+        const u1 = [pB[0]-pA[0], pB[1]-pA[1]];
+        const v1 = [pD[0]-pA[0], pD[1]-pA[1]];
+        const crossZ = u1[0]*v1[1] - u1[1]*v1[0];
+        const brightness = 0.45 + 0.35 * Math.tanh(crossZ / 100);
+        const shade = Math.round(brightness * 220);
+        quads.push({ avgZ, pts: [pA, pB, pC, pD], color: `rgb(${shade},${Math.round(shade*0.82)},${Math.round(shade*0.64)})` });
+      }
+      quads.sort((a, b) => a.avgZ - b.avgZ);
+
+      let html = "";
+      quads.forEach(q => {
+        const pts = q.pts.map(p => `${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(" ");
+        html += `<polygon points="${pts}" fill="${q.color}" stroke="#1c1917" stroke-width="0.3" opacity="0.92"/>`;
+      });
+      // boundary curve: trace the single edge
+      let edgePath = "";
+      for (let i = 0; i <= segs * 2; i++) {
+        const u = (i / segs) * 2 * Math.PI;
+        const v = 0.35;
+        const x = (R + v * Math.cos(u / 2)) * Math.cos(u);
+        const y = (R + v * Math.cos(u / 2)) * Math.sin(u);
+        const z = v * Math.sin(u / 2);
+        const p = project(rotate3([x, y, z], rx, ry));
+        edgePath += (i === 0 ? "M " : "L ") + p[0].toFixed(1) + " " + p[1].toFixed(1) + " ";
+      }
+      html += `<path d="${edgePath}" fill="none" stroke="#8b3a2e" stroke-width="1.5" opacity="0.9"/>`;
+      mobiusGroup.innerHTML = html;
+    }
+
+    let auto = true;
+    let lastT = 0;
+    function loop(t) {
+      const dt = (t - lastT) / 1000;
+      lastT = t;
+      if (auto) { ry += dt * 0.35; rx += dt * 0.1; }
+      renderMobius();
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+
+    let dragging = false, lastX = 0, lastY = 0;
+    function start(e) {
+      dragging = true; auto = false;
+      const t = e.touches ? e.touches[0] : e;
+      lastX = t.clientX; lastY = t.clientY;
+    }
+    function move(e) {
+      if (!dragging) return;
+      e.preventDefault();
+      const t = e.touches ? e.touches[0] : e;
+      ry += (t.clientX - lastX) * 0.01;
+      rx += (t.clientY - lastY) * 0.01;
+      lastX = t.clientX; lastY = t.clientY;
+    }
+    function end() { dragging = false; }
+    mobiusSvg.addEventListener("mousedown", start);
+    window.addEventListener("mousemove", move);
+    window.addEventListener("mouseup", end);
+    mobiusSvg.addEventListener("touchstart", start, { passive: false });
+    window.addEventListener("touchmove", move, { passive: false });
+    window.addEventListener("touchend", end);
+  </script>
+</body>
+</html>

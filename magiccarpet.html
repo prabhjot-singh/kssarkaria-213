@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>§8 Magic Carpet — 213, 16A</title>
+  <meta name="description" content="The welcome mat at 213, 16A — a pentagon with curved edges, and a glimpse of hyperbolic space.">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">213, 16A</a>
+    <nav><a href="index.html">The Tour</a></nav>
+  </header>
+
+  <main>
+    <article>
+      <p class="eyebrow">§8 · Welcome mat</p>
+      <h1>Magic Carpet</h1>
+
+      <figure class="photo">
+        <img src="assets/photos/213-026-047.jpg" alt="A concrete welcome mat with a red-tiled border, bearing a yellow circular halo with an inlaid red pentagon whose edges curve inward.">
+        <figcaption>The welcome mat — a regular pentagon with circular-arc edges, inlaid in a yellow 'halo'.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <blockquote>
+          <p>
+            Now that you've traversed the maze, and are past the main gate, you'll note that we're back where this tour began: there, to the right on that wall in front, is "Perfectly proportioned," which involved the golden ratio, after which we'd gone tripping down that stone path to the left to see "Beesmukhi," whose three rectangles were golden too, which is the same as saying — consider the pentagon whose five vertices are the five neighbours of any vertex of this icosahedron — that <em>golden ratio = diagonal ÷ side</em> for any regular pentagon.
+          </p>
+          <p>
+            You'll note also, if you look down, that you're being given a red-carpet welcome, and that, in this welcoming mat that you're standing on, there is <em>again, a regular pentagon</em>, but this time, one whose edges are circular arcs; as Poincaré showed, this seemingly frivolous frill has amazingly far-reaching implications!
+          </p>
+        </blockquote>
+
+        <p>
+          More precisely, our five circular edges have as their centres the five vertices of the pentagram obtained by extending the edges of an ordinary regular pentagon, from which fact it follows that, <em>the angle between the tangents to the two circular edges at each vertex is 72 degrees</em> — that is, one-fifth of 360 degrees; and likewise, starting from an ordinary regular polygon with p ≥ 6 edges, one gets a regular polygon with p circular edges making an angle of 360/p degrees at each vertex.
+        </p>
+      </div>
+
+      <section class="interactive" aria-label="Curved pentagon">
+        <h2>A pentagon with curved edges</h2>
+        <p class="muted" style="font-size: 0.95rem;">
+          Slide to curve the edges of a regular pentagon. At curvature = 0 it is an ordinary pentagon, interior angle 108°. At maximum curvature, the tangent angle at each vertex shrinks to 72° — exactly one-fifth of a full turn.
+        </p>
+        <div class="canvas-wrap">
+          <svg id="pentaSvg" viewBox="-200 -200 400 400" preserveAspectRatio="xMidYMid meet" role="img" style="background:#faf5eb;">
+            <g id="pentaGroup"></g>
+          </svg>
+        </div>
+        <div class="controls">
+          <label>Curvature: <input id="curvSlider" type="range" min="0" max="100" value="0"></label>
+          <label>Tangent angle at vertex: <span class="readout" id="tangAngle">108.00</span>°</label>
+          <label><input type="checkbox" id="showStar" checked> Show pentagram centers</label>
+          <label><input type="checkbox" id="showCircles"> Show full arc circles</label>
+        </div>
+      </section>
+
+      <div class="prose">
+        <h2>Infinite tiling of the halo</h2>
+        <blockquote>
+          <p>
+            The round yellow 'halo', in which the red curved pentagon is inlaid, is such that its 'horizon' cuts the edge-circles perpendicularly, so its size is ordained by the pythagorean theorem: (radius of horizon)² + (radius of an edge)² = (distance from the centre to the centre of an edge)².
+          </p>
+          <p>
+            <em>The halo of any regular curved polygon is the union of its multiple reflections in edges!</em> That these polygonal reflections are all in the halo, have circular edges perpendicular to the horizon, and the same angle at each vertex, is clear enough, because reflection in any edge keeps it fixed, preserves the perpendicular horizon as a whole, maps circles to circles, and preserves angles.
+          </p>
+        </blockquote>
+      </div>
+
+      <section class="interactive" aria-label="Hyperbolic tiling of the halo">
+        <h2>Reflect, and reflect again</h2>
+        <p class="muted" style="font-size: 0.95rem;">
+          Press the step button to apply one more round of reflections of the curved pentagon in its edges. Every new polygon remains within the halo — a glimpse of the infinite hyperbolic tiling {5, <em>q</em>}.
+        </p>
+        <div class="canvas-wrap">
+          <svg id="haloSvg" viewBox="-220 -220 440 440" preserveAspectRatio="xMidYMid meet" role="img" style="background:#faf5eb;">
+            <g id="haloGroup"></g>
+          </svg>
+        </div>
+        <div class="controls">
+          <button id="reflectBtn" type="button">Add a layer of reflections</button>
+          <button id="haloReset" type="button">Reset</button>
+          <label>Polygons: <span class="readout" id="haloCount">1</span></label>
+        </div>
+      </section>
+
+      <details class="his-words">
+        <summary>In his own words: distance in the halo</summary>
+        <div class="content">
+          <p>
+            The regularity of the non-platonic {p, q}'s with respect to the curved geometry of the halo tells us that <em>the parallel postulate must be invalid</em> in it, and that is so: now lines are circular paths perpendicular to the horizon, and through a point not on a given line there are many non-intersecting lines! However, we still have a <em>distance</em> which is invariant under reflections in all lines, and Poincaré pointed out that it can be derived from the assumption that local measurements at ordinary distance r from the centre are made by using rulers which have shrunk (!) by the factor R² − r², where R is the radius of the halo. Which is related to his rejection of the age-old notions of separate space and time in favour of a new principle of relativity to give Maxwell's theory of light a coordinate-free meaning, for just the distance we mentioned is the right one if space-time is viewed projectively (see Notes).
+          </p>
+          <p>
+            This last 'lecture' started with a pentagon and a pentagram, and has ended with their spatial analogues; but the game has barely begun! The dodecahedron is now almost crying out for <em>its</em> faces to be curved inwards, and starting with Poincaré himself, down to Thurston and others, magical things have been discovered thus.
+          </p>
+        </div>
+      </details>
+
+      <nav class="section-footer">
+        <a class="prev" href="amazingcurves.html">§7 Amazing curves</a>
+        <a class="tour-home" href="index.html">Map</a>
+        <a class="next" href="tailpiece.html">Tailpiece</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>Interactive version by <a href="https://github.com/prabhjot-singh/kssarkaria-213">Prabhjot Singh</a>, 2026 · Paper and photographs © K.S. Sarkaria</p>
+  </footer>
+
+  <script>
+    /* Curved pentagon. Circular arcs from each vertex to the next, bowing
+       inward. Sagitta parameter controls curvature.  Arcs are centered on
+       the pentagram points (extension of opposite edges) — at full curvature,
+       the tangent angle at each vertex equals 72°. */
+    const PHI = (1 + Math.sqrt(5)) / 2;
+    const pentaSvg = document.getElementById("pentaSvg");
+    const pentaGroup = document.getElementById("pentaGroup");
+    const curvSlider = document.getElementById("curvSlider");
+    const tangAngle = document.getElementById("tangAngle");
+    const showStar = document.getElementById("showStar");
+    const showCircles = document.getElementById("showCircles");
+
+    const R = 120; // pentagon circumradius
+
+    function pentagonVerts(r) {
+      const v = [];
+      for (let i = 0; i < 5; i++) {
+        const a = -Math.PI / 2 + (2 * Math.PI * i) / 5;
+        v.push({ x: r * Math.cos(a), y: r * Math.sin(a) });
+      }
+      return v;
+    }
+    function pentagramVerts(r) {
+      // The star-points at distance r·φ (roughly) where extended edges meet
+      // Actually: for regular pentagon circumradius R, the pentagram star
+      // point opposite each edge lies along the perpendicular bisector of
+      // that edge, at distance R·φ from the pentagon center (approx.).
+      // We pre-compute them from pentagon vertices.
+      const P = pentagonVerts(r);
+      const star = [];
+      for (let i = 0; i < 5; i++) {
+        const A = P[i], B = P[(i + 1) % 5];
+        const C = P[(i + 2) % 5], D = P[(i + 3) % 5];
+        // Intersection of lines (A,B) extended and (C,D) extended
+        // param: A + t(B-A) = C + s(D-C)
+        const dx1 = B.x - A.x, dy1 = B.y - A.y;
+        const dx2 = D.x - C.x, dy2 = D.y - C.y;
+        const denom = dx1 * dy2 - dy1 * dx2;
+        if (Math.abs(denom) < 1e-9) continue;
+        const t = ((C.x - A.x) * dy2 - (C.y - A.y) * dx2) / denom;
+        star.push({ x: A.x + t * dx1, y: A.y + t * dy1 });
+      }
+      return star;
+    }
+
+    function renderPentagon() {
+      const V = pentagonVerts(R);
+      const S = pentagramVerts(R);
+      // Re-associate star points with the edges they bound
+      // Edge i (from V[i] to V[(i+1)%5]): star point is the one FARTHEST from center
+      // that lies on the perpendicular bisector of the edge. For a regular pentagon
+      // this is the star-point opposite the edge, index (i + 3) mod 5 in the pentagram we computed.
+      // Our pentagram array is 5 intersection points; we want to map edge i → correct star point.
+      // Empirically: the star point nearest to the outward perpendicular of edge i is the one.
+      const edgeStar = [];
+      for (let i = 0; i < 5; i++) {
+        const A = V[i], B = V[(i + 1) % 5];
+        const mx = (A.x + B.x) / 2, my = (A.y + B.y) / 2;
+        // outward direction (away from origin)
+        const norm = Math.sqrt(mx*mx + my*my);
+        const ox = mx / norm, oy = my / norm;
+        let best = -1, bestDot = -Infinity;
+        for (let k = 0; k < S.length; k++) {
+          const dot = (S[k].x - mx) * ox + (S[k].y - my) * oy;
+          if (dot > bestDot) { bestDot = dot; best = k; }
+        }
+        edgeStar.push(S[best]);
+      }
+
+      // Curvature parameter: 0 = straight edge, 1 = arc centered at the
+      // matching pentagram star point (inward-bowing)
+      const c = parseFloat(curvSlider.value) / 100;
+
+      let html = "";
+
+      // Show full arc circles (dashed) when enabled
+      if (showCircles.checked && c > 0.01) {
+        for (let i = 0; i < 5; i++) {
+          const A = V[i], B = V[(i + 1) % 5];
+          const star = edgeStar[i];
+          // Move center from edge-midpoint (c=0, infinite radius) to star point (c=1)
+          const mx = (A.x + B.x)/2, my = (A.y + B.y)/2;
+          const cx = mx * (1 - c) + star.x * c;
+          const cy = my * (1 - c) + star.y * c;
+          const r = Math.sqrt((A.x - cx)**2 + (A.y - cy)**2);
+          html += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#c9a55c" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.5"/>`;
+        }
+      }
+
+      // Build path for curved pentagon
+      let d = `M ${V[0].x} ${V[0].y} `;
+      for (let i = 0; i < 5; i++) {
+        const A = V[i], B = V[(i + 1) % 5];
+        if (c < 0.01) {
+          d += `L ${B.x} ${B.y} `;
+        } else {
+          // Arc center
+          const star = edgeStar[i];
+          const mx = (A.x + B.x)/2, my = (A.y + B.y)/2;
+          const cx = mx * (1 - c) + star.x * c;
+          const cy = my * (1 - c) + star.y * c;
+          const r = Math.sqrt((A.x - cx)**2 + (A.y - cy)**2);
+          // Arc goes from A to B, centered at (cx, cy). The arc should
+          // bow INWARD (toward pentagon center). sweep-flag = 0.
+          d += `A ${r} ${r} 0 0 0 ${B.x} ${B.y} `;
+        }
+      }
+      d += "Z";
+      html += `<path d="${d}" fill="#8b3a2e" fill-opacity="0.55" stroke="#8b3a2e" stroke-width="2"/>`;
+
+      // Pentagram (dashed outline)
+      if (showStar.checked) {
+        // Pentagram: regular pentagon edges extended
+        let starPath = `M ${V[0].x} ${V[0].y} `;
+        for (let i = 0; i < 5; i++) {
+          starPath += `L ${V[(i + 2) % 5].x} ${V[(i + 2) % 5].y} `;
+        }
+        starPath += "Z";
+        html += `<path d="${starPath}" fill="none" stroke="#6b5d4f" stroke-width="1" stroke-dasharray="4 4" opacity="0.6"/>`;
+        // Star points
+        edgeStar.forEach(s => {
+          html += `<circle cx="${s.x}" cy="${s.y}" r="3" fill="#c9a55c" stroke="#6b5d4f" stroke-width="1"/>`;
+        });
+      }
+
+      // Vertices
+      V.forEach(v => {
+        html += `<circle cx="${v.x}" cy="${v.y}" r="3.5" fill="#1c1917"/>`;
+      });
+
+      // Compute tangent angle at vertex 0
+      // Tangent direction of arc from A to B at A, when arc has center C:
+      // tangent is perpendicular to radius (A - C), rotated in direction of arc sweep.
+      if (c < 0.01) {
+        // Straight pentagon interior angle is 108°
+        tangAngle.textContent = "108.00";
+      } else {
+        // Tangent at V[0] coming in from arc V[-1]→V[0] and going out to V[0]→V[1]
+        const edgeIn = 4, edgeOut = 0;
+        const getTangent = (edge, atVertex) => {
+          const A = V[edge];
+          const B = V[(edge + 1) % 5];
+          const star = edgeStar[edge];
+          const mx = (A.x + B.x)/2, my = (A.y + B.y)/2;
+          const cx = mx * (1 - c) + star.x * c;
+          const cy = my * (1 - c) + star.y * c;
+          // Radius vector from center to the vertex
+          const rx = atVertex.x - cx, ry = atVertex.y - cy;
+          // Tangent is perpendicular; choose the one pointing along arc direction.
+          // Arc direction is from A to B.
+          const dirX = B.x - A.x, dirY = B.y - A.y;
+          const t1 = { x: -ry, y: rx };
+          const t2 = { x: ry, y: -rx };
+          const pickDot = (t) => t.x * dirX + t.y * dirY;
+          let tan = pickDot(t1) > 0 ? t1 : t2;
+          // Normalize
+          const L = Math.sqrt(tan.x*tan.x + tan.y*tan.y);
+          return { x: tan.x / L, y: tan.y / L };
+        };
+        const tIn = getTangent(edgeIn, V[0]); // tangent at V[0] leaving arc-in (pointing from V[4] side to V[0])
+        // We want INCOMING tangent; reverse direction at vertex for arc entering V[0]
+        // Actually compute both and measure the interior angle
+        const tOut = getTangent(edgeOut, V[0]); // tangent pointing from V[0] to V[1]
+        // Angle between (-tIn) and tOut gives interior angle at vertex
+        const neg = { x: -tIn.x, y: -tIn.y };
+        const dot = neg.x * tOut.x + neg.y * tOut.y;
+        const ang = Math.acos(Math.max(-1, Math.min(1, dot))) * 180 / Math.PI;
+        tangAngle.textContent = ang.toFixed(2);
+      }
+
+      pentaGroup.innerHTML = html;
+    }
+
+    curvSlider.addEventListener("input", renderPentagon);
+    showStar.addEventListener("change", renderPentagon);
+    showCircles.addEventListener("change", renderPentagon);
+    renderPentagon();
+
+    /* Halo reflections — a simplified hyperbolic tiling. We reflect the
+       curved pentagon (at maximum curvature) in each of its edge circles
+       iteratively. Reflection in a circle with center O, radius R, takes
+       point P to P' where OP·OP' = R² along the ray from O through P. */
+    const haloSvg = document.getElementById("haloSvg");
+    const haloGroup = document.getElementById("haloGroup");
+    const haloCount = document.getElementById("haloCount");
+    const reflectBtn = document.getElementById("reflectBtn");
+    const haloReset = document.getElementById("haloReset");
+
+    const HALO_R = 200;
+    let haloPolys = [];
+    let haloLayer = 0;
+
+    function computeEdgeCircles(poly) {
+      // For each edge from poly[i] to poly[(i+1)%5], we need the circle through
+      // those two points that meets the halo boundary perpendicularly.
+      // For a chord of the halo (centered at origin radius HALO_R),
+      // the perpendicular-crossing circle has center at a specific location.
+      // For a point P inside the halo, the perpendicular circle through P to
+      // the boundary has center at (HALO_R^2 / |P|^2) * P (the inversion of P).
+      // But we want a circle through TWO points that meets boundary perpendicularly:
+      // there is a unique such circle for any two interior points (assuming they're distinct).
+      const circles = [];
+      for (let i = 0; i < poly.length; i++) {
+        const A = poly[i], B = poly[(i+1) % poly.length];
+        circles.push(circleThrough2PointsPerp(A, B, HALO_R));
+      }
+      return circles;
+    }
+
+    function circleThrough2PointsPerp(A, B, R) {
+      // Circle through A, B that meets circle-of-radius-R-at-origin perpendicularly.
+      // The inversion of A across origin-radius-R is A' = (R²/|A|²)·A.
+      // The required circle passes through A, B, and A' (and B').
+      // Equivalently, its center lies at equal distance from A and B AND
+      // satisfies |OC|² − r² = R² (the "power of origin" equals R²).
+      // Solve: center C = (cx, cy), radius r.
+      // Power: cx² + cy² − r² = R²
+      // |CA| = r: (cx-Ax)² + (cy-Ay)² = r²
+      // Subtract: cx² + cy² − (cx-Ax)² − (cy-Ay)² = R²
+      //         → 2·cx·Ax + 2·cy·Ay − Ax² − Ay² = R²
+      //         → 2·Ax·cx + 2·Ay·cy = R² + Ax² + Ay²
+      // Similarly for B: 2·Bx·cx + 2·By·cy = R² + Bx² + By²
+      // Linear system → solve.
+      const a1 = 2 * A.x, b1 = 2 * A.y, c1 = R*R + A.x*A.x + A.y*A.y;
+      const a2 = 2 * B.x, b2 = 2 * B.y, c2 = R*R + B.x*B.x + B.y*B.y;
+      const det = a1 * b2 - a2 * b1;
+      if (Math.abs(det) < 1e-9) return null;
+      const cx = (c1 * b2 - c2 * b1) / det;
+      const cy = (a1 * c2 - a2 * c1) / det;
+      const r = Math.sqrt((cx - A.x)**2 + (cy - A.y)**2);
+      return { cx, cy, r };
+    }
+
+    function reflectPointInCircle(P, C) {
+      const dx = P.x - C.cx, dy = P.y - C.cy;
+      const d2 = dx*dx + dy*dy;
+      if (d2 < 1e-9) return null;
+      const k = (C.r * C.r) / d2;
+      return { x: C.cx + dx * k, y: C.cy + dy * k };
+    }
+
+    function resetHalo() {
+      // Start with the curved pentagon at center (we use vertices only; draw arcs through).
+      haloPolys = [pentagonVerts(90)];
+      haloLayer = 0;
+      drawHalo();
+    }
+    function reflectLayer() {
+      const newPolys = [];
+      haloPolys.forEach(poly => {
+        const circles = computeEdgeCircles(poly);
+        circles.forEach(c => {
+          if (!c) return;
+          const reflected = poly.map(p => reflectPointInCircle(p, c)).filter(p => p);
+          if (reflected.length !== poly.length) return;
+          // Keep only if centroid is within halo
+          const cx = reflected.reduce((s, p) => s + p.x, 0) / reflected.length;
+          const cy = reflected.reduce((s, p) => s + p.y, 0) / reflected.length;
+          if (cx*cx + cy*cy < HALO_R * HALO_R * 0.98) {
+            newPolys.push(reflected);
+          }
+        });
+      });
+      // Deduplicate by centroid
+      const seen = new Set();
+      const unique = [];
+      [...haloPolys, ...newPolys].forEach(p => {
+        const cx = p.reduce((s, q) => s + q.x, 0) / p.length;
+        const cy = p.reduce((s, q) => s + q.y, 0) / p.length;
+        const key = `${Math.round(cx)},${Math.round(cy)}`;
+        if (!seen.has(key)) { seen.add(key); unique.push(p); }
+      });
+      haloPolys = unique;
+      haloLayer++;
+      drawHalo();
+    }
+
+    function drawHalo() {
+      let html = `<circle cx="0" cy="0" r="${HALO_R}" fill="#f1e2c0" stroke="#c9a55c" stroke-width="2"/>`;
+      haloPolys.forEach((poly, pi) => {
+        // draw approximately with line segments (good enough for this prototype)
+        const pts = poly.map(p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" ");
+        const fill = pi === 0 ? "#8b3a2e" : "#8b3a2e";
+        const opacity = pi === 0 ? 0.75 : Math.max(0.15, 0.6 - pi * 0.02);
+        html += `<polygon points="${pts}" fill="${fill}" fill-opacity="${opacity}" stroke="#1c1917" stroke-width="0.9"/>`;
+      });
+      haloGroup.innerHTML = html;
+      haloCount.textContent = haloPolys.length;
+    }
+
+    reflectBtn.addEventListener("click", () => {
+      if (haloLayer >= 4) return; // stop after a few to avoid explosion
+      reflectLayer();
+    });
+    haloReset.addEventListener("click", resetHalo);
+    resetHalo();
+  </script>
+</body>
+</html>
