@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>§2 Beesmukhi — 213, 16A</title>
+  <meta name="description" content="The icosahedron sculpture in the water pond at 213, 16A — three interlocking golden rectangles.">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <style>
+    .three-d-canvas {
+      background: linear-gradient(180deg, #b8c8d8 0%, #9bb0c4 100%);
+      user-select: none;
+      touch-action: none;
+      cursor: grab;
+    }
+    .three-d-canvas:active { cursor: grabbing; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">213, 16A</a>
+    <nav>
+      <a href="index.html">The Tour</a>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <p class="eyebrow">§2 · Water pond</p>
+      <h1>Beesmukhi</h1>
+
+      <figure class="photo">
+        <img src="assets/photos/213-003-006.jpg" alt="A concrete icosahedral sculpture standing on a small pedestal in a curved water pond, with a small bridge behind.">
+        <figcaption>The Beesmukhi — twenty-faced — standing in the small water pond, on the other side of the front door.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <blockquote>
+          <p>
+            <em>"Beesmukhi"</em> (bees = twenty, mukhi = faced) is what its Bhojpuri-speaking sculptors called the concrete statue in this small water pond. It depicts — once we have sublimated those concrete rods into zero thickness edges in our boundless imagination — an <em>icosahedron</em>, that is, a regular solid having 20 equilateral triangular faces, with 5 faces at each of its (20 × 3) ÷ 5 = 12 vertices.
+          </p>
+          <p>
+            We also see, thanks to the omission of the faces, that <em>its 12 = 3 × 4 vertices are the vertices of 3 identical rectangles</em>, each inserted perpendicularly half-way through a parallel central slit of the next in cyclic order.
+          </p>
+        </blockquote>
+      </div>
+
+      <section class="interactive" aria-label="Interactive icosahedron">
+        <h2>Three rectangles — or an icosahedron</h2>
+        <div class="canvas-wrap">
+          <svg id="beesSvg" class="three-d-canvas" viewBox="-200 -200 400 400" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Three golden rectangles forming an icosahedron.">
+            <g id="scene"></g>
+          </svg>
+        </div>
+        <div class="controls">
+          <button id="autoBtn" type="button">Pause rotation</button>
+          <button id="resetBees" type="button">Reset view</button>
+          <label>Explode: <input id="explode" type="range" min="0" max="100" value="0"></label>
+          <label><input type="checkbox" id="showIcosa" checked> Show icosahedron</label>
+          <label><input type="checkbox" id="showRects" checked> Show rectangles</label>
+        </div>
+        <p class="muted" style="margin-top: 1rem; font-size: 0.9rem;">
+          Drag to rotate. The three rectangles are each a golden rectangle — length ÷ breadth = <em>φ</em>. Their twelve corners are exactly the twelve vertices of a regular icosahedron.
+        </p>
+      </section>
+
+      <div class="prose">
+        <h2>Why the ratio must be the golden one</h2>
+        <p>
+          To verify this construction gives an icosahedron, we note that the 12 vertices are equidistant from the common center of the 3 rectangles; and each is incident to 5 edges, while each edge has 2 vertices, so there are in all (12 × 5) ÷ 2 = 30 edges. Of these, the 24 which join a vertex to one of the two nearest vertices of the next rectangle have clearly, by symmetry, the same length <em>a</em>. Also, the remaining 6 edges, being the shorter sides of the identical rectangles, have the same length <em>b</em>.
+        </p>
+        <blockquote>
+          <p>
+            In general, <em>a</em> is <em>not</em> equal to <em>b</em>. However, <em>the above construction gives an icosahedron, provided the three identical rectangles have a special length-to-breadth ratio.</em> For, if we keep <em>b</em> fixed, then <em>a</em> increases or decreases with <em>l</em>, the common length of the rectangles, being patently much <em>bigger</em> than <em>b</em> when the rectangles are very long, but is <em>lesser</em> than <em>b</em> when the rectangles approach 'squarehood' — so there is an optimal <em>l</em> at which <em>a</em> = <em>b</em>.
+          </p>
+          <p>
+            <em>The above 'special' ratio turns out to be none other than the golden ratio!</em>
+          </p>
+        </blockquote>
+      </div>
+
+      <details class="his-words">
+        <summary>In his own words: counting edges and faces</summary>
+        <div class="content">
+          <p>
+            Here explicitly is the omitted general prescription for a <em>regular solid</em> {p, q}: its finitely many vertices should be on a sphere, its faces should be equal <em>regular</em> — i.e., with consecutive vertices equally spaced on a circle — <em>polygons</em> with p sides and vertices, and there should be q of these faces at each vertex. Clearly, p and q must be whole numbers 3 or bigger, and there exists a regular polygon with p sides for any such p — so, from the delicate way in which we settled the case {3, 5} (icosahedron), it is natural to fear that the general existence problem for regular solids must be hard. Surprisingly, this is <em>not</em> the case.
+          </p>
+        </div>
+      </details>
+
+      <nav class="section-footer">
+        <a class="prev" href="mural.html">§1 Perfectly proportioned</a>
+        <a class="tour-home" href="index.html">Map</a>
+        <a class="next" href="pyramid.html">§3 Pyramid</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>Interactive version by <a href="https://github.com/prabhjot-singh/kssarkaria-213">Prabhjot Singh</a>, 2026 · Paper and photographs © K.S. Sarkaria</p>
+  </footer>
+
+  <script>
+    // Minimal hand-rolled 3D — no three.js, no dependencies.
+    const PHI = (1 + Math.sqrt(5)) / 2;
+    const SCALE = 70;
+    const svgNS = "http://www.w3.org/2000/svg";
+    const svg = document.getElementById("beesSvg");
+    const scene = document.getElementById("scene");
+    const autoBtn = document.getElementById("autoBtn");
+    const resetBtn = document.getElementById("resetBees");
+    const explodeCtl = document.getElementById("explode");
+    const showIcosa = document.getElementById("showIcosa");
+    const showRects = document.getElementById("showRects");
+
+    // Icosahedron vertex positions organised into 3 rectangles
+    // Rect A in yz plane (x=0): y ∈ {-1, +1}, z ∈ {-φ, +φ}
+    // Rect B in xy plane (z=0): x ∈ {-1, +1}, y ∈ {-φ, +φ}
+    // Rect C in xz plane (y=0): x ∈ {-φ, +φ}, z ∈ {-1, +1}
+    const RECTS = [
+      { color: "#7a9ab6", normal: [1, 0, 0], corners: [[0,1,PHI], [0,1,-PHI], [0,-1,-PHI], [0,-1,PHI]] },
+      { color: "#8fa987", normal: [0, 0, 1], corners: [[1,PHI,0], [1,-PHI,0], [-1,-PHI,0], [-1,PHI,0]] },
+      { color: "#c9a55c", normal: [0, 1, 0], corners: [[PHI,0,1], [PHI,0,-1], [-PHI,0,-1], [-PHI,0,1]] }
+    ];
+
+    // All 12 icosahedron vertices
+    const V = [];
+    RECTS.forEach(r => r.corners.forEach(c => V.push(c.slice())));
+
+    // Icosahedron edges: pairs at distance 2 (nearest neighbours)
+    function vLen(a){ return Math.sqrt(a[0]*a[0]+a[1]*a[1]+a[2]*a[2]); }
+    function vSub(a,b){ return [a[0]-b[0],a[1]-b[1],a[2]-b[2]]; }
+    const EDGES = [];
+    const EDGE_TOL = 0.01;
+    for (let i=0; i<V.length; i++) {
+      for (let j=i+1; j<V.length; j++) {
+        if (Math.abs(vLen(vSub(V[i], V[j])) - 2) < EDGE_TOL) EDGES.push([i, j]);
+      }
+    }
+
+    // Icosahedron faces (20 triangles): triples of mutually adjacent vertices
+    const FACES = [];
+    const adj = Array.from({length: V.length}, () => new Set());
+    EDGES.forEach(([a,b]) => { adj[a].add(b); adj[b].add(a); });
+    for (let i=0; i<V.length; i++) {
+      for (const j of adj[i]) if (j > i) {
+        for (const k of adj[i]) if (k > j && adj[j].has(k)) FACES.push([i, j, k]);
+      }
+    }
+
+    // Rotation
+    let rx = 0.6, ry = 0.8;
+    let auto = true;
+    let explode = 0;
+
+    function rotate(p) {
+      const [x, y, z] = p;
+      const cy = Math.cos(ry), sy = Math.sin(ry);
+      const cx = Math.cos(rx), sx = Math.sin(rx);
+      // rotate around Y
+      let x1 = x * cy + z * sy;
+      let z1 = -x * sy + z * cy;
+      let y1 = y;
+      // rotate around X
+      let y2 = y1 * cx - z1 * sx;
+      let z2 = y1 * sx + z1 * cx;
+      return [x1, y2, z2];
+    }
+
+    function project(p) {
+      const depth = 6;
+      const f = depth / (depth - p[2] * 0.15); // mild perspective
+      return [p[0] * SCALE * f, -p[1] * SCALE * f, p[2]];
+    }
+
+    function transformedRectCorners(rect) {
+      const n = rect.normal;
+      const d = explode;
+      return rect.corners.map(c => rotate([c[0] + n[0]*d, c[1] + n[1]*d, c[2] + n[2]*d]));
+    }
+
+    function transformedVertex(i) {
+      // Find which rect this vertex belongs to (index 0..11; rects are 4 each)
+      const rectIdx = Math.floor(i / 4);
+      const n = RECTS[rectIdx].normal;
+      const c = V[i];
+      return rotate([c[0] + n[0]*explode, c[1] + n[1]*explode, c[2] + n[2]*explode]);
+    }
+
+    function render() {
+      scene.innerHTML = "";
+
+      const drawables = [];
+
+      // Icosahedron triangles
+      if (showIcosa.checked) {
+        FACES.forEach(face => {
+          const pts3 = face.map(transformedVertex);
+          const avgZ = (pts3[0][2] + pts3[1][2] + pts3[2][2]) / 3;
+          // back-face culling by normal
+          const a = pts3[0], b = pts3[1], c = pts3[2];
+          const u = [b[0]-a[0], b[1]-a[1], b[2]-a[2]];
+          const v = [c[0]-a[0], c[1]-a[1], c[2]-a[2]];
+          const nZ = u[0]*v[1] - u[1]*v[0];
+          if (nZ > 0) return; // back-facing
+          const pts2 = pts3.map(project);
+          drawables.push({
+            type: "tri",
+            z: avgZ,
+            pts: pts2,
+            style: "fill:#5c6b7a; fill-opacity:0.22; stroke:#1c1917; stroke-width:1.2"
+          });
+        });
+      }
+
+      // Rectangles as filled quads (translucent) + edges
+      if (showRects.checked) {
+        RECTS.forEach((rect, ri) => {
+          const pts3 = transformedRectCorners(rect);
+          const avgZ = pts3.reduce((s,p)=>s+p[2],0) / 4;
+          const pts2 = pts3.map(project);
+          drawables.push({
+            type: "quad",
+            z: avgZ,
+            pts: pts2,
+            style: `fill:${rect.color}; fill-opacity:0.82; stroke:#1c1917; stroke-width:1.8`
+          });
+        });
+      }
+
+      // Sort back-to-front
+      drawables.sort((a, b) => a.z - b.z);
+
+      drawables.forEach(d => {
+        if (d.type === "tri") {
+          const poly = document.createElementNS(svgNS, "polygon");
+          poly.setAttribute("points", d.pts.map(p => `${p[0]},${p[1]}`).join(" "));
+          poly.setAttribute("style", d.style);
+          scene.appendChild(poly);
+        } else if (d.type === "quad") {
+          const poly = document.createElementNS(svgNS, "polygon");
+          poly.setAttribute("points", d.pts.map(p => `${p[0]},${p[1]}`).join(" "));
+          poly.setAttribute("style", d.style);
+          scene.appendChild(poly);
+        }
+      });
+
+      // Icosahedron edges on top (outline)
+      if (showIcosa.checked) {
+        EDGES.forEach(([ia, ib]) => {
+          const a = project(transformedVertex(ia));
+          const b = project(transformedVertex(ib));
+          const line = document.createElementNS(svgNS, "line");
+          line.setAttribute("x1", a[0]); line.setAttribute("y1", a[1]);
+          line.setAttribute("x2", b[0]); line.setAttribute("y2", b[1]);
+          line.setAttribute("stroke", "#1c1917");
+          line.setAttribute("stroke-width", "1.4");
+          line.setAttribute("stroke-opacity", "0.7");
+          scene.appendChild(line);
+        });
+      }
+
+      // Vertices
+      V.forEach((_, i) => {
+        const p = project(transformedVertex(i));
+        const c = document.createElementNS(svgNS, "circle");
+        c.setAttribute("cx", p[0]); c.setAttribute("cy", p[1]);
+        c.setAttribute("r", 3.5);
+        c.setAttribute("fill", "#1c1917");
+        scene.appendChild(c);
+      });
+    }
+
+    // Auto rotation
+    let lastT = 0;
+    function tick(t) {
+      const dt = (t - lastT) / 1000;
+      lastT = t;
+      if (auto) { ry += dt * 0.4; rx += dt * 0.15; }
+      render();
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    // Drag to rotate
+    let dragging = false, lastX = 0, lastY = 0;
+    function startDrag(e) {
+      dragging = true; auto = false; autoBtn.textContent = "Resume rotation";
+      const t = e.touches ? e.touches[0] : e;
+      lastX = t.clientX; lastY = t.clientY;
+    }
+    function moveDrag(e) {
+      if (!dragging) return;
+      e.preventDefault();
+      const t = e.touches ? e.touches[0] : e;
+      const dx = t.clientX - lastX, dy = t.clientY - lastY;
+      ry += dx * 0.01;
+      rx += dy * 0.01;
+      lastX = t.clientX; lastY = t.clientY;
+    }
+    function endDrag() { dragging = false; }
+    svg.addEventListener("mousedown", startDrag);
+    window.addEventListener("mousemove", moveDrag);
+    window.addEventListener("mouseup", endDrag);
+    svg.addEventListener("touchstart", startDrag, { passive: false });
+    window.addEventListener("touchmove", moveDrag, { passive: false });
+    window.addEventListener("touchend", endDrag);
+
+    autoBtn.addEventListener("click", () => {
+      auto = !auto;
+      autoBtn.textContent = auto ? "Pause rotation" : "Resume rotation";
+    });
+    resetBtn.addEventListener("click", () => {
+      rx = 0.6; ry = 0.8; explode = 0; explodeCtl.value = 0;
+      auto = true; autoBtn.textContent = "Pause rotation";
+    });
+    explodeCtl.addEventListener("input", () => {
+      explode = explodeCtl.value / 100 * 2.5;
+    });
+    showIcosa.addEventListener("change", render);
+    showRects.addEventListener("change", render);
+  </script>
+</body>
+</html>

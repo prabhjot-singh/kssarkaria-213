@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>§4 Miss Universe — 213, 16A</title>
+  <meta name="description" content="Miss Universe — the topologist's dodecahedron. Euler's V − E + F, torus and Klein bottle, and Poincaré's conjecture.">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <style>
+    .euler-readout {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+      font-variant-numeric: tabular-nums oldstyle-nums;
+    }
+    .euler-readout b { color: var(--brick); font-size: 1.2rem; }
+    .glue-square {
+      background: #f5efe3;
+      stroke: #1c1917;
+    }
+    .edge-btn {
+      font-size: 0.85rem;
+    }
+    .torus-klein-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: center;
+      margin-top: 1rem;
+    }
+    @media (min-width: 760px) {
+      .torus-klein-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .glue-svg { display: block; margin: 0 auto; }
+    .verdict {
+      text-align: center;
+      font-size: 1.15rem;
+      margin-top: 1rem;
+      color: var(--brick);
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">213, 16A</a>
+    <nav><a href="index.html">The Tour</a></nav>
+  </header>
+
+  <main>
+    <article>
+      <p class="eyebrow">§4 · Office window</p>
+      <h1>Miss Universe</h1>
+
+      <figure class="photo">
+        <img src="assets/photos/213-008-015.jpg" alt="A rectangular wall painting with a bevelled frame, divided into coloured pentagonal panels in muted blues, greens, ochres, and yellows.">
+        <figcaption>The wall-painting with bevelled frame under my office window — a "topologist's dodecahedron."</figcaption>
+      </figure>
+
+      <div class="prose">
+        <blockquote>
+          <p>
+            That wall-painting with bevelled frame under my office window depicts a <em>'topologist's dodecahedron.'</em> Exactly one of the four sides of each cemented panel is subdivided into two by a fifth vertex, so these panels are non-regular pentagons. Further, 5 different colours have been assigned to 5 pairs of panels, but the eleventh panel is left uncoloured, which should alert you to the fact that there is a twelfth face, which is — of course! — the obviously uncoloured and missing 'glass pane' in front of this painting.
+          </p>
+          <p>
+            With this understood, you can check that there are, at each of the 20 vertices, exactly 3 of these pentagonal faces, so what we have here is a rather severely squashed {5, 3}. Yet, this distortion is mild enough, and of no import, to <em>a topologist</em>, i.e., <em>'a person who can't distinguish between his/her coffee-cup and doughnut'!</em>
+          </p>
+        </blockquote>
+
+        <p>
+          Topology frees us from the shackles of Euclid's fifth postulate. Distance and angle become bit players; only continuity matters. Two shapes are <em>topologically equivalent</em> if there exists a one-one correspondence between them which is continuous in both directions.
+        </p>
+      </div>
+
+      <section class="interactive" aria-label="Euler characteristic invariance">
+        <h2>V − E + F is always 2</h2>
+        <p class="muted" style="font-size: 0.9rem;">
+          Click on any edge to add a vertex at its midpoint. Click on any face to add a vertex inside and connect it to the corners. Watch: <em>V − E + F</em> never changes.
+        </p>
+        <div class="canvas-wrap">
+          <svg id="eulerSvg" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet" role="img" style="background: #faf5eb;">
+            <g id="facesLayer"></g>
+            <g id="edgesLayer"></g>
+            <g id="verticesLayer"></g>
+          </svg>
+        </div>
+        <div class="euler-readout controls">
+          <label>V (vertices): <span class="readout" id="vCount">0</span></label>
+          <label>E (edges): <span class="readout" id="eCount">0</span></label>
+          <label>F (faces): <span class="readout" id="fCount">0</span></label>
+          <label>V − E + F = <b id="chiReadout">—</b></label>
+          <button id="eulerReset" type="button">Reset</button>
+        </div>
+      </section>
+
+      <div class="prose">
+        <p>
+          Topology is an extreme generalization of Euclid's geometry. A <em>'topologist's polygon'</em> with <em>p</em> sides may not (unlike the pentagons of this mural) even be planar, and its specified <em>p</em> boundary edges, joining one after another its specified <em>p</em> vertices, can be very crooked. By choosing one point (these shall be the vertices of the new subdivision) in each face of a polygonal subdivision, and for each pair of faces having a common edge a curve (these shall be the edges of the new subdivision) across this edge between the two points, we get a <em>dual polygonal subdivision</em> of the same surface — with each face containing just one vertex of the original subdivision.
+        </p>
+        <blockquote>
+          <p>
+            <em>The number V − E + F is the same for <strong>all</strong> polygonal subdivisions of a closed surface</em>, i.e., it is a topological invariant of the surface, and can be easily computed by using any convenient polygonal subdivision of the same.
+          </p>
+          <p>
+            In particular, V − E + F = 2 for the five regular solids, which are topologically equivalent to a ball, so this formula holds for any polygonal subdivision of its surface. The lost beauties can only be on surfaces whose V − E + F is non-positive, and one such we've already mentioned, viz., the surface of a doughnut or a coffee cup, or if you please, a pretzel with 1 hole.
+          </p>
+        </blockquote>
+      </div>
+
+      <section class="interactive" aria-label="Torus and Klein bottle identification">
+        <h2>Glue the opposite sides of a square</h2>
+        <p class="muted" style="font-size: 0.9rem;">
+          Click the arrows to reverse direction. Matching arrows identify those edges. Both pairs matching: torus. One pair reversed: Klein bottle.
+        </p>
+        <div class="torus-klein-grid">
+          <div>
+            <svg class="glue-svg" viewBox="0 0 260 260" width="260" height="260" role="img" aria-label="Square with labelled edges for identification.">
+              <rect class="glue-square" x="20" y="20" width="220" height="220" fill="#faf5eb" stroke="#1c1917" stroke-width="2"/>
+
+              <!-- edges with arrows; clickable to flip direction -->
+              <g id="topEdge" style="cursor:pointer;">
+                <line x1="20" y1="20" x2="240" y2="20" stroke="#8b3a2e" stroke-width="3"/>
+                <polygon id="topArrow" points="0,0" fill="#8b3a2e"/>
+              </g>
+              <g id="bottomEdge" style="cursor:pointer;">
+                <line x1="20" y1="240" x2="240" y2="240" stroke="#8b3a2e" stroke-width="3"/>
+                <polygon id="bottomArrow" points="0,0" fill="#8b3a2e"/>
+              </g>
+              <g id="leftEdge" style="cursor:pointer;">
+                <line x1="20" y1="20" x2="20" y2="240" stroke="#7a9ab6" stroke-width="3"/>
+                <polygon id="leftArrow" points="0,0" fill="#7a9ab6"/>
+              </g>
+              <g id="rightEdge" style="cursor:pointer;">
+                <line x1="240" y1="20" x2="240" y2="240" stroke="#7a9ab6" stroke-width="3"/>
+                <polygon id="rightArrow" points="0,0" fill="#7a9ab6"/>
+              </g>
+
+              <!-- corner labels -->
+              <text x="10" y="15" font-size="12" fill="#6b5d4f">A</text>
+              <text x="242" y="15" font-size="12" fill="#6b5d4f">B</text>
+              <text x="10" y="255" font-size="12" fill="#6b5d4f">D</text>
+              <text x="242" y="255" font-size="12" fill="#6b5d4f">C</text>
+            </svg>
+            <p class="muted" style="text-align:center; font-size:0.85rem;">Click any edge to flip its arrow.</p>
+          </div>
+          <div>
+            <div id="glueResult" style="text-align:center;"></div>
+            <p class="verdict" id="glueVerdict">—</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="prose">
+        <blockquote>
+          <p>
+            If we alter our glueing slightly to AB ≡ DC and AD ≡ CB something very remarkable happens: we obtain (in our imagination) a shape, called <em>Klein's Bottle</em>, which is locally just like any closed surface, but which cannot possibly exist in 3-dimensional space! We can hope to find Klein's Bottle only in a higher-dimensional euclidean space!
+          </p>
+          <p>
+            Just so there is no confusion here, let me emphasize once again that geometry is really played out in the mind. It is a logical development of some axioms, and its admittedly helpful, but necessarily imperfect figures are dispensable. One goes from 2- to 3-dimensional space simply by postulating a new direction perpendicular to the old ones; we can do Euclid's geometry in E⁴, E⁵, or as many finite dimensions, n, as we like.
+          </p>
+        </blockquote>
+      </div>
+
+      <details class="his-words">
+        <summary>In his own words: Poincaré's conjecture</summary>
+        <div class="content">
+          <p>
+            Whatever one might think of Plato's {5, 3} = Universe/Quintessence — or its 'improvement' {5, 3}/{3, 5} = Universe/Quintessence? — this offspring <em>P³</em> of {5, 3} has been at the centre of the topological universe for a 100 years and more! It was known that S² was the only 2-dimensional manifold in which every loop bounded. For some time Poincaré thought that a like statement was true in dimension 3, till he found <em>P³</em>, which has this property but, unlike S³, is not <em>simply connected:</em> it has loops which cannot be shrunk to a point.
+          </p>
+          <p>
+            Thus was born <em>Poincaré's Conjecture</em> — 'a simply connected closed 3-dimensional manifold is topologically equivalent to S³' — the (erstwhile) holy grail of topology which spawned numerous beautiful results and finally a solution by Perelman so natural it promises much more.
+          </p>
+          <p>
+            Uncannily enough, this offspring P³ of "Miss Universe" has also been weighed by physicists as the global shape of the spatial universe — one can almost hear Aflatoon's: "I told you so!" — as revealed to us by those mysterious radio waves constantly coming to Earth because of that 'Big Bang' aeons ago. However, I'm sure Plato would have been more impressed by what mathematicians have gotten out of his beloved {5, 3}, to my mind there is nothing in any other field which is remotely as deep or attractive.
+          </p>
+        </div>
+      </details>
+
+      <nav class="section-footer">
+        <a class="prev" href="pyramid.html">§3 Pyramid</a>
+        <a class="tour-home" href="index.html">Map</a>
+        <a class="next" href="intermission.html">Intermission</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>Interactive version by <a href="https://github.com/prabhjot-singh/kssarkaria-213">Prabhjot Singh</a>, 2026 · Paper and photographs © K.S. Sarkaria</p>
+  </footer>
+
+  <script>
+    /* =========================================================================
+       Euler V − E + F interactive. We maintain a planar graph with faces
+       (including the outer face). Click an edge → add midpoint vertex (splits
+       the edge, V+1, E+1, F unchanged). Click a face → add centroid vertex
+       connected to all face-vertices (V+1, E+p, F+p-1). χ stays at 2.
+    ========================================================================= */
+    const svgEuler = document.getElementById("eulerSvg");
+    const facesLayer = document.getElementById("facesLayer");
+    const edgesLayer = document.getElementById("edgesLayer");
+    const verticesLayer = document.getElementById("verticesLayer");
+    const vCount = document.getElementById("vCount");
+    const eCount = document.getElementById("eCount");
+    const fCount = document.getElementById("fCount");
+    const chiReadout = document.getElementById("chiReadout");
+    const svgNS = "http://www.w3.org/2000/svg";
+    let G;
+
+    function initGraph() {
+      // Start with a nice "squashed pentagon" layout (homage to Miss Universe)
+      const cx = 300, cy = 200, R = 130;
+      const verts = [];
+      for (let i = 0; i < 5; i++) {
+        const a = -Math.PI / 2 + (2 * Math.PI * i) / 5;
+        verts.push({ x: cx + R * Math.cos(a), y: cy + R * Math.sin(a), id: i });
+      }
+      const edges = [];
+      for (let i = 0; i < 5; i++) {
+        edges.push({ from: verts[i], to: verts[(i + 1) % 5], id: i });
+      }
+      const inner = { vertices: verts.slice(), edges: edges.slice(), id: "inner" };
+      const outer = { vertices: verts.slice().reverse(), edges: edges.slice(), id: "outer" };
+      G = {
+        vertices: verts,
+        edges: edges,
+        faces: [inner, outer],
+        nextVid: 5,
+        nextEid: 5,
+        nextFid: 2
+      };
+      render();
+    }
+
+    function render() {
+      facesLayer.innerHTML = "";
+      edgesLayer.innerHTML = "";
+      verticesLayer.innerHTML = "";
+
+      const colors = ["#8fa987", "#c9a55c", "#7a9ab6", "#bd986a", "#9dab7e", "#b38965"];
+      G.faces.forEach((f, i) => {
+        if (f.id === "outer") return; // don't fill the outer face
+        const pts = f.vertices.map(v => `${v.x},${v.y}`).join(" ");
+        const poly = document.createElementNS(svgNS, "polygon");
+        poly.setAttribute("points", pts);
+        poly.setAttribute("fill", colors[i % colors.length]);
+        poly.setAttribute("fill-opacity", "0.5");
+        poly.setAttribute("stroke", "none");
+        poly.style.cursor = "pointer";
+        poly.addEventListener("click", (ev) => {
+          ev.stopPropagation();
+          subdivideFace(f);
+        });
+        facesLayer.appendChild(poly);
+      });
+
+      G.edges.forEach(e => {
+        const line = document.createElementNS(svgNS, "line");
+        line.setAttribute("x1", e.from.x); line.setAttribute("y1", e.from.y);
+        line.setAttribute("x2", e.to.x); line.setAttribute("y2", e.to.y);
+        line.setAttribute("stroke", "#1c1917"); line.setAttribute("stroke-width", "2");
+        line.style.cursor = "pointer";
+        line.addEventListener("click", (ev) => {
+          ev.stopPropagation();
+          subdivideEdge(e);
+        });
+        edgesLayer.appendChild(line);
+      });
+
+      G.vertices.forEach(v => {
+        const c = document.createElementNS(svgNS, "circle");
+        c.setAttribute("cx", v.x); c.setAttribute("cy", v.y);
+        c.setAttribute("r", 5); c.setAttribute("fill", "#1c1917");
+        verticesLayer.appendChild(c);
+      });
+
+      const V = G.vertices.length, E = G.edges.length, F = G.faces.length;
+      vCount.textContent = V;
+      eCount.textContent = E;
+      fCount.textContent = F;
+      chiReadout.textContent = V - E + F;
+    }
+
+    function subdivideEdge(e) {
+      // insert midpoint vertex, split edge in two, update affected faces
+      const mx = (e.from.x + e.to.x) / 2;
+      const my = (e.from.y + e.to.y) / 2;
+      const mv = { x: mx, y: my, id: G.nextVid++ };
+      G.vertices.push(mv);
+
+      const e1 = { from: e.from, to: mv, id: G.nextEid++ };
+      const e2 = { from: mv, to: e.to, id: G.nextEid++ };
+
+      const idx = G.edges.indexOf(e);
+      G.edges.splice(idx, 1, e1, e2);
+
+      // update faces that used this edge
+      G.faces.forEach(f => {
+        const ei = f.edges.indexOf(e);
+        if (ei >= 0) {
+          f.edges.splice(ei, 1, e1, e2);
+          // insert mv into vertices right after from-vertex position (or before to)
+          const vi = f.vertices.indexOf(e.from);
+          const next = f.vertices[(vi + 1) % f.vertices.length];
+          if (next === e.to) {
+            f.vertices.splice(vi + 1, 0, mv);
+          } else {
+            // edge was traversed in reverse for this face
+            const vj = f.vertices.indexOf(e.to);
+            f.vertices.splice(vj + 1, 0, mv);
+          }
+        }
+      });
+
+      render();
+    }
+
+    function subdivideFace(f) {
+      if (f.id === "outer") return;
+      // add centroid and fan edges to each vertex of face
+      const n = f.vertices.length;
+      const cx = f.vertices.reduce((s, v) => s + v.x, 0) / n;
+      const cy = f.vertices.reduce((s, v) => s + v.y, 0) / n;
+      const cv = { x: cx, y: cy, id: G.nextVid++ };
+      G.vertices.push(cv);
+
+      // new edges from centroid to each face vertex
+      const newEdges = f.vertices.map(v => ({ from: cv, to: v, id: G.nextEid++ }));
+      G.edges.push(...newEdges);
+
+      // new triangular faces
+      const newFaces = [];
+      for (let i = 0; i < n; i++) {
+        const v1 = f.vertices[i], v2 = f.vertices[(i + 1) % n];
+        const e12 = f.edges.find(e =>
+          (e.from === v1 && e.to === v2) || (e.from === v2 && e.to === v1)
+        );
+        const eCv1 = newEdges.find(e => e.to === v1);
+        const eCv2 = newEdges.find(e => e.to === v2);
+        newFaces.push({
+          vertices: [cv, v1, v2],
+          edges: [eCv1, e12, eCv2],
+          id: G.nextFid++
+        });
+      }
+
+      const idx = G.faces.indexOf(f);
+      G.faces.splice(idx, 1, ...newFaces);
+      render();
+    }
+
+    document.getElementById("eulerReset").addEventListener("click", initGraph);
+    initGraph();
+
+    /* =========================================================================
+       Torus / Klein bottle glueing toy.
+       Two arrow pairs (red horizontal, blue vertical). Each pair direction can
+       be flipped. Compute whether it's a torus or a Klein bottle.
+    ========================================================================= */
+    const edgeState = {
+      top: 1,    // 1 = left-to-right
+      bottom: 1, // 1 = left-to-right
+      left: 1,   // 1 = top-to-bottom
+      right: 1   // 1 = top-to-bottom
+    };
+
+    function arrowPoints(x1, y1, x2, y2) {
+      const dx = x2 - x1, dy = y2 - y1;
+      const len = Math.sqrt(dx*dx + dy*dy);
+      const ux = dx/len, uy = dy/len;
+      // midpoint
+      const mx = (x1+x2)/2, my = (y1+y2)/2;
+      const tip = { x: mx + ux*10, y: my + uy*10 };
+      const base1 = { x: mx - ux*6 + uy*6, y: my - uy*6 - ux*6 };
+      const base2 = { x: mx - ux*6 - uy*6, y: my - uy*6 + ux*6 };
+      return `${tip.x},${tip.y} ${base1.x},${base1.y} ${base2.x},${base2.y}`;
+    }
+    function drawArrow(edgeKey, coords) {
+      const [x1, y1, x2, y2] = coords;
+      const dir = edgeState[edgeKey];
+      const points = dir === 1
+        ? arrowPoints(x1, y1, x2, y2)
+        : arrowPoints(x2, y2, x1, y1);
+      document.getElementById(edgeKey + "Arrow").setAttribute("points", points);
+    }
+    function paintArrows() {
+      drawArrow("top", [20, 20, 240, 20]);
+      drawArrow("bottom", [20, 240, 240, 240]);
+      drawArrow("left", [20, 20, 20, 240]);
+      drawArrow("right", [240, 20, 240, 240]);
+      classify();
+    }
+
+    function flipEdge(key) {
+      edgeState[key] = -edgeState[key];
+      paintArrows();
+    }
+
+    ["top", "bottom", "left", "right"].forEach(k => {
+      document.getElementById(k + "Edge").addEventListener("click", () => flipEdge(k));
+    });
+
+    const glueResult = document.getElementById("glueResult");
+    const glueVerdict = document.getElementById("glueVerdict");
+    function classify() {
+      const horizMatch = edgeState.top === edgeState.bottom;
+      const vertMatch = edgeState.left === edgeState.right;
+      let result, caption;
+      if (horizMatch && vertMatch) {
+        result = "torus";
+        caption = "A torus. Donuts, coffee cups, ring galaxies.";
+      } else if (!horizMatch && !vertMatch) {
+        result = "rp2";
+        caption = "The real projective plane — which, like Klein's bottle, cannot be embedded in 3 dimensions.";
+      } else {
+        result = "klein";
+        caption = "Klein's bottle. A closed surface that does not exist in 3-dimensional space.";
+      }
+      glueResult.innerHTML = glueSvg(result);
+      glueVerdict.textContent = caption;
+    }
+
+    function glueSvg(kind) {
+      if (kind === "torus") {
+        return `<svg width="220" height="160" viewBox="0 0 220 160" role="img" aria-label="Torus">
+          <ellipse cx="110" cy="80" rx="90" ry="50" fill="#c9a55c" fill-opacity="0.55" stroke="#1c1917" stroke-width="2"/>
+          <ellipse cx="110" cy="80" rx="40" ry="18" fill="#f5efe3" stroke="#1c1917" stroke-width="2"/>
+          <path d="M 20 80 Q 110 130 200 80" fill="none" stroke="#1c1917" stroke-width="1.3" opacity="0.5"/>
+        </svg>`;
+      }
+      if (kind === "klein") {
+        return `<svg width="220" height="160" viewBox="0 0 220 160" role="img" aria-label="Klein bottle">
+          <path d="M 40 130 C 40 60 100 40 140 40 C 180 40 200 70 200 90 C 200 110 180 115 170 110 C 155 105 150 85 160 70 C 170 55 150 45 130 65 C 100 95 70 140 40 130 Z"
+                fill="#7a9ab6" fill-opacity="0.55" stroke="#1c1917" stroke-width="2"/>
+          <path d="M 160 70 C 160 60 135 62 135 80" stroke="#1c1917" stroke-width="1.3" fill="none" stroke-dasharray="3 3"/>
+        </svg>`;
+      }
+      // rp2
+      return `<svg width="220" height="160" viewBox="0 0 220 160" role="img" aria-label="Projective plane">
+        <circle cx="110" cy="80" r="65" fill="#8fa987" fill-opacity="0.55" stroke="#1c1917" stroke-width="2"/>
+        <circle cx="110" cy="80" r="65" fill="none" stroke="#8b3a2e" stroke-width="1.5" stroke-dasharray="6 4"/>
+        <path d="M 45 80 A 65 20 0 0 0 175 80" fill="none" stroke="#1c1917" stroke-width="1.2" opacity="0.5"/>
+      </svg>`;
+    }
+
+    paintArrows();
+  </script>
+</body>
+</html>
