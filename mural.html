@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>§1 Perfectly proportioned — 213, 16A</title>
+  <meta name="description" content="The golden-rectangle mural at the front door of 213, 16A — and a proof that the golden ratio is irrational.">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">213, 16A</a>
+    <nav>
+      <a href="index.html">The Tour</a>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <p class="eyebrow">§1 · Front door</p>
+      <h1>Perfectly proportioned</h1>
+
+      <figure class="photo">
+        <img src="assets/photos/213-001-001.jpg" alt="Close-up of one of the front-door murals: blue, green, and ochre rectangles spiralling inwards to a small white square.">
+        <figcaption>One of the two front-door murals. Each deleted square is a different colour.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <blockquote>
+          <p>The defining property of a <em>golden rectangle</em> is that, if we delete from it a square on a smaller side, then we are left with a similar rectangle, i.e., one having the same length-to-breadth ratio, and this ratio, that is, the common length-to-breadth ratio of all golden rectangles, is called <em>the golden ratio</em>.</p>
+        </blockquote>
+
+        <p>
+          The two murals near the front door depict golden rectangles. Deleting the blues gives a smaller golden rectangle, then, by throwing away the bluish greens, another which is still smaller, and after three more deletions, one arrives finally in these murals at the tiny white rectangles. What the spiralling in these murals is intended to evoke is that, in our God-given unlimited imagination, there is, just as clearly, no need to stop, now or ever. <em>We can continue deleting a square on a smaller side for as long as we wish!</em>
+        </p>
+      </div>
+
+      <section class="interactive" aria-label="Interactive golden rectangle">
+        <h2>Delete the squares yourself</h2>
+        <div class="canvas-wrap">
+          <svg id="rectSvg" viewBox="0 0 1000 618" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Golden rectangle with nested squares.">
+            <rect x="0" y="0" width="1000" height="618" fill="#faf5eb" stroke="#1c1917" stroke-width="2"/>
+            <g id="squaresLayer"></g>
+            <path id="spiralPath" d="" fill="none" stroke="#8b3a2e" stroke-width="2" stroke-dasharray="0"/>
+            <rect id="currentRect" x="0" y="0" width="1000" height="618" fill="none" stroke="#1c1917" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="controls">
+          <button id="stepBtn" type="button">Delete a square</button>
+          <button id="resetBtn" type="button">Reset</button>
+          <button id="spiralBtn" type="button">Toggle spiral</button>
+          <label>Deletions: <span class="readout" id="countReadout">0</span></label>
+          <label>Length ÷ breadth: <span class="readout" id="ratioReadout">1.6180339887</span></label>
+        </div>
+        <p class="muted" style="margin-top: 1rem; font-size: 0.9rem;">
+          However many times you delete, the remaining rectangle has the same length-to-breadth ratio: <em>φ</em> = 1.618…
+        </p>
+      </section>
+
+      <div class="prose">
+        <h2>But the ratio cannot be a fraction</h2>
+        <p>
+          One finds on some websites, and also on a panel in the City Museum in Sector 10, the assertion that the golden ratio is equal to 1.618. <em>This is simply not true.</em>
+        </p>
+        <blockquote>
+          <p>
+            Recall that 1.618 is decimal notation for 1618 by 1000. To see this, we note that, if the length-to-breadth ratio of our rectangle were 1618 by 1000, we could have subdivided each side of our rectangle into either 1618 or 1000 appropriately chosen equal units. Then, by drawing parallels through these subdivision points, we could have partitioned the rectangle into 1618 × 1000 equal squares. The deletion of the blues would have entailed throwing away 1000 × 1000 of these small squares, and then, that of the bluish greens, 618 × 618 more of these small squares, etcetera. So, since we have <em>finitely</em> many small squares in all, and are throwing away some at each step, we would have been done (even in our imagination) in <em>finitely</em> many steps. This contradicts the fact that the deletion process can (in our imagination) continue for as long as we wish.
+          </p>
+          <p>
+            Remarkably 1618 and 1000 played no special role in this reasoning, it works just as well with any two whole numbers <span class="math">m</span> and <span class="math">n</span>! Therefore: <em>the golden ratio is not equal to any fractional number <span class="math">m/n</span> (<span class="math">m</span> by <span class="math">n</span>)</em>, or equivalently, <em>a golden rectangle cannot be partitioned into finitely many equal squares in any way!</em> A truly mind-blowing result!
+          </p>
+        </blockquote>
+        <p>
+          For, these squares can be as tiny as we want, even the size of a meson! Again, between any two fractional numbers, howsoever close, there is an infinity of fractional numbers, yet, on this already more than overcrowded ruler, there is somehow still some room left for numbers like the golden ratio that are not fractional!
+        </p>
+      </div>
+
+      <details class="his-words">
+        <summary>In his own words: the first mural</summary>
+        <div class="content">
+          <p>
+            Indeed, the inherent limitations of masonry, or for that matter, any practical form of visual representation, clearly dictate that one would need to stop, sooner or later, at some point or the other. However, what the spiralling in these murals is intended to evoke is that, in our God-given unlimited imagination, there is, just as clearly, no need to stop, now or ever.
+          </p>
+          <p>
+            And therein, in this evoked idea, as I'll presently show, lies the real beauty of these depictions, a beauty which transcends by far their mere visuals, and in my humble, but admittedly prejudiced, mathematician's opinion, is far more fetching than anything the best painter has ever painted, or the best poet ever written.
+          </p>
+          <p>
+            In fact these 'mere visuals' already have — as you can confirm from the web — a huge fan following. From Phidias, through Leonardo da Vinci, to Le Corbusier, the architect who planned Chandigarh, the proportions of the golden rectangle have been raved about by all sorts of aesthetes, with Corbusier even opining that the navel divides a perfectly proportioned human body in the golden ratio, and then the two parts in turn are divided in the same ratio at the throat and the knees respectively.
+          </p>
+        </div>
+      </details>
+
+      <nav class="section-footer">
+        <a class="prev" href="index.html">The Tour</a>
+        <a class="tour-home" href="index.html">Map</a>
+        <a class="next" href="beesmukhi.html">§2 Beesmukhi</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>Interactive version by <a href="https://github.com/prabhjot-singh/kssarkaria-213">Prabhjot Singh</a>, 2026 · Paper and photographs © K.S. Sarkaria</p>
+  </footer>
+
+  <script>
+    const PHI = (1 + Math.sqrt(5)) / 2;
+    const palette = [
+      "#7a9ab6", "#8fa987", "#c9a55c", "#5e8584",
+      "#a98361", "#9dab7e", "#6b8ba8", "#bd986a",
+      "#8fa987", "#c9a55c"
+    ];
+    const MAX_STEPS = 10;
+
+    const svgNS = "http://www.w3.org/2000/svg";
+    const squaresLayer = document.getElementById("squaresLayer");
+    const currentRect = document.getElementById("currentRect");
+    const spiralPath = document.getElementById("spiralPath");
+    const countReadout = document.getElementById("countReadout");
+    const ratioReadout = document.getElementById("ratioReadout");
+    const stepBtn = document.getElementById("stepBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    const spiralBtn = document.getElementById("spiralBtn");
+
+    let state;
+
+    function reset() {
+      state = {
+        rect: { x: 0, y: 0, w: 1000, h: 1000 / PHI },
+        side: 0, // 0 left, 1 top, 2 right, 3 bottom
+        steps: 0,
+        squares: [],
+        arcs: []
+      };
+      squaresLayer.innerHTML = "";
+      spiralPath.setAttribute("d", "");
+      currentRect.setAttribute("x", state.rect.x);
+      currentRect.setAttribute("y", state.rect.y);
+      currentRect.setAttribute("width", state.rect.w);
+      currentRect.setAttribute("height", state.rect.h);
+      countReadout.textContent = "0";
+      ratioReadout.textContent = PHI.toFixed(10);
+      stepBtn.disabled = false;
+    }
+
+    function step() {
+      if (state.steps >= MAX_STEPS) return;
+      const r = state.rect;
+      const s = Math.min(r.w, r.h);
+      let sq, newRect, arcStart, arcEnd, arcCenter;
+
+      if (state.side === 0) {
+        sq = { x: r.x, y: r.y, s };
+        newRect = { x: r.x + s, y: r.y, w: r.w - s, h: r.h };
+        arcCenter = { x: sq.x + sq.s, y: sq.y + sq.s };
+        arcStart = { x: sq.x + sq.s, y: sq.y };
+        arcEnd = { x: sq.x, y: sq.y + sq.s };
+      } else if (state.side === 1) {
+        sq = { x: r.x, y: r.y, s };
+        newRect = { x: r.x, y: r.y + s, w: r.w, h: r.h - s };
+        arcCenter = { x: sq.x + sq.s, y: sq.y + sq.s };
+        arcStart = { x: sq.x + sq.s, y: sq.y };
+        arcEnd = { x: sq.x, y: sq.y + sq.s };
+      } else if (state.side === 2) {
+        sq = { x: r.x + r.w - s, y: r.y, s };
+        newRect = { x: r.x, y: r.y, w: r.w - s, h: r.h };
+        arcCenter = { x: sq.x, y: sq.y + sq.s };
+        arcStart = { x: sq.x + sq.s, y: sq.y + sq.s };
+        arcEnd = { x: sq.x, y: sq.y };
+      } else {
+        sq = { x: r.x, y: r.y + r.h - s, s };
+        newRect = { x: r.x, y: r.y, w: r.w, h: r.h - s };
+        arcCenter = { x: sq.x, y: sq.y };
+        arcStart = { x: sq.x, y: sq.y + sq.s };
+        arcEnd = { x: sq.x + sq.s, y: sq.y };
+      }
+
+      const rect = document.createElementNS(svgNS, "rect");
+      rect.setAttribute("x", sq.x);
+      rect.setAttribute("y", sq.y);
+      rect.setAttribute("width", sq.s);
+      rect.setAttribute("height", sq.s);
+      rect.setAttribute("fill", palette[state.steps % palette.length]);
+      rect.setAttribute("stroke", "#1c1917");
+      rect.setAttribute("stroke-width", "1.5");
+      rect.setAttribute("opacity", "0");
+      squaresLayer.appendChild(rect);
+      requestAnimationFrame(() => {
+        rect.style.transition = "opacity 0.4s ease";
+        rect.setAttribute("opacity", "0.92");
+      });
+
+      state.squares.push(sq);
+      state.arcs.push({ start: arcStart, end: arcEnd, center: arcCenter, r: sq.s });
+      state.rect = newRect;
+      state.side = (state.side + 1) % 4;
+      state.steps += 1;
+
+      currentRect.setAttribute("x", newRect.x);
+      currentRect.setAttribute("y", newRect.y);
+      currentRect.setAttribute("width", newRect.w);
+      currentRect.setAttribute("height", newRect.h);
+
+      countReadout.textContent = state.steps;
+      const ratio = Math.max(newRect.w, newRect.h) / Math.min(newRect.w, newRect.h);
+      ratioReadout.textContent = ratio.toFixed(10);
+
+      if (spiralShown) drawSpiral();
+      if (state.steps >= MAX_STEPS) stepBtn.disabled = true;
+    }
+
+    let spiralShown = false;
+    function drawSpiral() {
+      if (!state.arcs.length) { spiralPath.setAttribute("d", ""); return; }
+      let d = "";
+      state.arcs.forEach((a, i) => {
+        if (i === 0) d += `M ${a.start.x} ${a.start.y} `;
+        d += `A ${a.r} ${a.r} 0 0 1 ${a.end.x} ${a.end.y} `;
+      });
+      spiralPath.setAttribute("d", d);
+    }
+
+    stepBtn.addEventListener("click", step);
+    resetBtn.addEventListener("click", reset);
+    spiralBtn.addEventListener("click", () => {
+      spiralShown = !spiralShown;
+      if (spiralShown) drawSpiral();
+      else spiralPath.setAttribute("d", "");
+    });
+
+    reset();
+  </script>
+</body>
+</html>
